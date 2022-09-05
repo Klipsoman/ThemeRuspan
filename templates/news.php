@@ -29,7 +29,7 @@
 
         $query_news = new WP_Query( [ 
           'category_name'  => 'news',
-          'posts_per_page' => 2,
+          'posts_per_page' => 6,
           'paged'          => $current,
         ] );
         

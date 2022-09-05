@@ -53,7 +53,8 @@ get_header();
         <?php
           $s = get_search_query();
           $args = array(
-            's' => $s,
+            's'             => $s,
+            'posts_per_page' => 10
           );
 
         // The Query
@@ -85,9 +86,7 @@ get_header();
                 href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 
               <p class="search-result__descr description-secondary">
-
-                <?php the_content(); ?>
-
+                <?php the_content(); ?>          
               </p>
             </div>
           </div>

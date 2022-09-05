@@ -19,7 +19,7 @@
     <div class="page-photo-description__content">
       <div class="page-photo-description__left">
         <div class="page-photo-description__photo-box">
-          <img class="page-photo-description__photo" src="assets/images/man1.jpg" alt="">
+          <img class="page-photo-description__photo" src="<?= get_template_directory_uri()?>/assets/images/man1.jpg;" alt="">
         </div>
       </div>
       <div class="page-photo-description__right">

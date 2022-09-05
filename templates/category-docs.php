@@ -11,20 +11,20 @@
     <h1 class="page-header">Документы и сертификаты</h1>
   </div>
 </div>
-<form action="" method="get">
+<form action="" method="get" id="docs-main-form">
   <!-- docs-page -->
   <div class="docs-page">
     <?php
 
-if (isset($_REQUEST['filter']['countperpage']) ) { 
-  $post_per_page = $_REQUEST['filter']['countperpage'][0];  
-} else {
-  $post_per_page = 100;
-}
+global $wp_query;
+  if (isset($_REQUEST['filter']['countperpage']) ) { 
+   $post_per_page = $_REQUEST['filter']['countperpage'][0];  
+  } else {
+    $post_per_page = 24;
+  }
+        
+        if (isset($_REQUEST['filter'])) {
 
-if (isset($_REQUEST['filter'])) {
-  global $wp_query;
-  
           $query = [
             'tax_query' => [
               'relation' => 'AND',     
@@ -119,7 +119,7 @@ if (isset($_REQUEST['filter'])) {
         );
 
         $query_arr = [ 
-          'cat'              => isset($_GET['filter']['category']) ? $_GET['filter']['category'] : [6],
+          'cat'     => isset($_GET['filter']['category']) ? $_GET['filter']['category'] : [6],
           'posts_per_page'   => isset($_GET['filter']['countperpage']) ? $_GET['filter']['countperpage'][0] : $post_per_page,
           'paged'            => $current
         ];
@@ -127,7 +127,6 @@ if (isset($_REQUEST['filter'])) {
         if (!empty($_GET['search'])) {
           $search_query = $_GET['search'];
           $query_arr['s'] = strtolower($search_query);
-
         }
 
           $query_docs = new WP_Query( $query_arr );
@@ -143,13 +142,24 @@ if (isset($_REQUEST['filter'])) {
             <div class="catalog">
               <div class="catalog__body">
                 <div class="catalog__link-box">
-
                   <a href="<?php the_field('document_link', $id); ?>" class="catalog__link"><?php the_title(); ?></a>
                 </div>
                 <div class="catalog__type">
                   <?php 
                       $cat = get_the_category();
-                      echo $cat[0]->cat_name;
+                      $cat_name = $cat[0]->name;
+
+                      for($i = 0; $i < count($cat); $i++){
+                        $parent_id = $cat[$i]->parent;
+                        if ($parent_id !== 0) {
+                          $cat_name = $cat[$i]->name;
+                        }
+                      }
+
+                      echo $cat_name;
+                      // echo '<pre>';
+                      // echo print_r($cat);
+                      // echo '</pre>';
                       ?>
                 </div>
                 <div class="catalog__download-box">
@@ -191,26 +201,34 @@ if (isset($_REQUEST['filter'])) {
             </div>
 
             <div class="amount" id="documents-and-sertificates-amount">
+                  <?php 
+                  $title_count = isset($_GET['filter']['countperpage']) ? $_GET['filter']['countperpage'][0] : $post_per_page;      
+                ?>
               <div class="amount__body" method="get">
-                <div class="amount__title description-secondary" data-mount="24">3</div>
+                <div class="amount__title description-secondary" data-mount="">
+                  <?= $title_count; ?>
+                </div>
                 <ul class="amount__list">
-                  <li class="amount__item" data-mount="24">
-                    <input type="radio" value="1" name="filter[countperpage][]"
-                      <?= checked( isset($_GET['filter']['countperpage']) && $_GET['filter']['countperpage'][0] && $_GET['filter']['countperpage'][0] === '1'); ?>>
-                    1
+                  <li class="amount__item">
+                    <label for="" data-mount="1">24
+                      <input type="radio" value="24" name="filter[countperpage][]"
+                        <?= checked( isset($_GET['filter']['countperpage']) && $_GET['filter']['countperpage'][0] && $_GET['filter']['countperpage'][0] == '24'); ?>
+                      >
+                    </label>
                   </li>
-                  <li class="amount__item" data-mount="48">
-                    <input type="radio" value="2" name="filter[countperpage][]"
-                      <?= checked( isset($_GET['filter']['countperpage']) && $_GET['filter']['countperpage'][0] && $_GET['filter']['countperpage'][0] === '2'); ?>>
-                    2
+                  <li class="amount__item">
+                    <label for="" data-mount="2">48
+                      <input type="radio" value="48" name="filter[countperpage][]"
+                        <?= checked( isset($_GET['filter']['countperpage']) && $_GET['filter']['countperpage'][0] && $_GET['filter']['countperpage'][0] == '48'); ?>
+                      >
+                    </label>
                   </li>
-                  <li class="amount__item" data-mount="96">
-                    <input type="radio" value="3" name="filter[countperpage][]"
-                      <?= checked( isset($_GET['filter']['countperpage']) && $_GET['filter']['countperpage'][0] && $_GET['filter']['countperpage'][0] === '3'); ?>>
-                    3
-                  </li>
-                  <li>
-                    <input class="custom-select__btn btn btn-grey" type="submit" value="Применить">
+                  <li class="amount__item">
+                    <label for="" data-mount="3">96
+                      <input type="radio" value="96" name="filter[countperpage][]"
+                        <?= checked( isset($_GET['filter']['countperpage']) && $_GET['filter']['countperpage'][0] && $_GET['filter']['countperpage'][0] == '96'); ?>
+                      >
+                    </label>
                   </li>
                 </ul>
               </div>

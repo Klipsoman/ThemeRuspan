@@ -39,14 +39,14 @@
   }
 
   function search_filter($query) {
-    // if ( !is_admin() && $query->is_main_query() ) {
-    if ( !is_admin() ) {
+    if ( !is_admin() && $query->is_main_query() ) {
+    // if ( !is_admin() ) {
       if ($query->is_search) {
+        $posts_per_page = $query->posts_per_page;
         $query->set('paged', ( get_query_var('paged') ) ? get_query_var('paged') : 1 );
-        $query->set('posts_per_page', 1);
+        $query->set('posts_per_page', $posts_per_page);
       }
     }
   }
-
 
 ?>
