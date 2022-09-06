@@ -5,6 +5,9 @@
 get_header();
 ?>
 
+<?php $filterreset = $_SERVER['REQUEST_URI'];
+$filterreset = strtok($filterreset, '?'); ?>
+
 <!-- Page Inner -->
 <div class="page-inner">
   <div class="container">
@@ -77,118 +80,72 @@ get_header();
             </div>
           </div>
 
-          <div class="projects__reset">Сбросить фильтры x</div>
+          <a href="<?php echo $filterreset; ?>" class="projects__reset">Сбросить фильтры x</a>
 
         </div>
         <div class="projects__list">
 
-          <div class="projects__item">
-            <a href="" class="projects__link">
-              <div class="projects__image-box">
-                <img src="./assets/images/project2.png" alt="" class="projects__img">
-              </div>
-              <div class="projects__info">
-                <div class="projects__title-box">
-                  Клиент
-                  <div class="projects__title">Х5 Group</div>
-                </div>
-                <div class="projects__title-box">
-                  Проект
-                  <div class="projects__title">Распределительный центр «Пятерочка»</div>
-                </div>
-              </div>
-            </a>
-          </div>
+          <?php 
+             
+             $current = absint(
+               max(
+                 1,
+                 get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' )
+               )
+             );
+     
+             $query_arr = [ 
+              // id13 - рубрика проекты
+               'cat'     => [13],
+               'posts_per_page'   => 12,
+               'paged'            => $current
+             ];
+
+             $query_projects = new WP_Query( $query_arr );
+
+             if ($query_projects->have_posts()) {
+
+             while( $query_projects->have_posts() ) {
+                $query_projects->the_post();
+                $id = get_the_ID();
+          ?>
+          
+          <?php 
+                $tags = wp_get_post_tags( $post->ID );
+                // echo '<pre>';
+                // print_r( $tags  );
+                // echo '</pre>';
+                ?>
 
           <div class="projects__item">
-            <a href="" class="projects__link">
+            <a href="<?php the_permalink(); ?>" class="projects__link">
               <div class="projects__image-box">
-                <img src="./assets/images/project2.png" alt="" class="projects__img">
+                <?php 
+                if (has_post_thumbnail()) {
+                  the_post_thumbnail();
+                } else {
+                  ?>
+                <img class="search-result__img" src="https://www.pinecliffs.com/static/images/cms/default_image.png"
+                  alt="" />
+                <?php } ?>
               </div>
               <div class="projects__info">
+           
                 <div class="projects__title-box">
                   Клиент
-                  <div class="projects__title">Х5 Group</div>
+                  <div class="projects__title"><?php the_field('p_client'); ?></div>
                 </div>
                 <div class="projects__title-box">
                   Проект
-                  <div class="projects__title">Распределительный центр «Пятерочка»</div>
+                  <div class="projects__title"><?php the_title(); ?></div>
                 </div>
               </div>
             </a>
           </div>
-
-          <div class="projects__item">
-            <a href="" class="projects__link">
-              <div class="projects__image-box">
-                <img src="./assets/images/project2.png" alt="" class="projects__img">
-              </div>
-              <div class="projects__info">
-                <div class="projects__title-box">
-                  Клиент
-                  <div class="projects__title">Х5 Group</div>
-                </div>
-                <div class="projects__title-box">
-                  Проект
-                  <div class="projects__title">Распределительный центр «Пятерочка»</div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="projects__item">
-            <a href="" class="projects__link">
-              <div class="projects__image-box">
-                <img src="./assets/images/project3.png" alt="" class="projects__img">
-              </div>
-              <div class="projects__info">
-                <div class="projects__title-box">
-                  Клиент
-                  <div class="projects__title">Х5 Group</div>
-                </div>
-                <div class="projects__title-box">
-                  Проект
-                  <div class="projects__title">Распределительный центр «Пятерочка»</div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="projects__item">
-            <a href="" class="projects__link">
-              <div class="projects__image-box">
-                <img src="./assets/images/project3.png" alt="" class="projects__img">
-              </div>
-              <div class="projects__info">
-                <div class="projects__title-box">
-                  Клиент
-                  <div class="projects__title">Х5 Group</div>
-                </div>
-                <div class="projects__title-box">
-                  Проект
-                  <div class="projects__title">Распределительный центр «Пятерочка»</div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="projects__item">
-            <a href="" class="projects__link">
-              <div class="projects__image-box">
-                <img src="./assets/images/project3.png" alt="" class="projects__img">
-              </div>
-              <div class="projects__info">
-                <div class="projects__title-box">
-                  Клиент
-                  <div class="projects__title">Х5 Group</div>
-                </div>
-                <div class="projects__title-box">
-                  Проект
-                  <div class="projects__title">Распределительный центр «Пятерочка»</div>
-                </div>
-              </div>
-            </a>
-          </div>
+          <?php	}	?>
+          <?php } else { echo '<div>Ничего не найдено</div>'; }
+          wp_reset_postdata();
+          ?>
 
         </div>
 
@@ -197,11 +154,23 @@ get_header();
           <div class="projects-page-pagination pagination">
             <div class="container">
               <div class="pagination__items">
-                <div class="pagination__prev"></div>
+              <?php 
+                echo wp_kses_post(
+                  paginate_links(
+                    [
+                      'total'   => $query_projects->max_num_pages,
+                      'current' => $current,
+                      'prev_text' => __('←'),
+                      'next_text' => __('→'),
+                    ]
+                  )
+                );
+              ?>
+                <!-- <div class="pagination__prev"></div>
                 <div class="pagination__item current">1</div>
                 <div class="pagination__item">2</div>
                 <div class="pagination__item">3</div>
-                <div class="pagination__next"></div>
+                <div class="pagination__next"></div> -->
               </div>
             </div>
           </div>
@@ -233,9 +202,6 @@ get_header();
                     96
                     <input type="radio" value="96" data-mount="96" name="filter[countperpage][]">
                   </label>
-                </li>
-                <li class="amount__item" data-mount="96">
-                  <input type="submit" value="Применить">
                 </li>
               </ul>
             </div>

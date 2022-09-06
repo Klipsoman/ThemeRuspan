@@ -157,9 +157,6 @@ global $wp_query;
                       }
 
                       echo $cat_name;
-                      // echo '<pre>';
-                      // echo print_r($cat);
-                      // echo '</pre>';
                       ?>
                 </div>
                 <div class="catalog__download-box">

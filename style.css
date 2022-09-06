@@ -1399,6 +1399,7 @@ textarea {
 .tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 10px;
   margin-top: auto;
 }
@@ -1590,6 +1591,23 @@ textarea {
   pointer-events: none;
   background-color: #f0f5fb;
   color: #232323;
+}
+.header__navigation > ul > li.menu-item-has-children.submenu-active {
+  padding-bottom: 0;
+}
+.header__navigation > ul > li.menu-item-has-children::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  right: -15px;
+  width: 9px;
+  height: 5px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDExIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNS41IDUuNUwxMCAxIiBzdHJva2U9IiMyMzIzMjMiLz4KPC9zdmc+Cg==');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header__navigation > ul > li.menu-item-has-children:hover::after {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDExIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDUuNUw1LjUgMUwxMCA1LjUiIHN0cm9rZT0iIzAwNDI4OSIvPgo8L3N2Zz4K');
 }
 .header__navigation > ul > li > ul > li {
   padding: 15px 0;
@@ -2830,6 +2848,7 @@ textarea {
 }
 .delivered-card__btn {
   width: 125px;
+  margin-right: 10px;
   min-width: auto;
 }
 
@@ -3802,6 +3821,7 @@ textarea {
   margin-bottom: 150px;
 }
 .project-page .project__content {
+  height: 100%;
   min-height: 100%;
   display: flex;
   background-color: #004289;
@@ -3820,6 +3840,12 @@ textarea {
 .project-page .project__image-box {
   width: 100%;
   height: 100%;
+}
+.project-page .project__image-box > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 .project-page .project__image {
   width: 100%;
@@ -4693,6 +4719,9 @@ textarea {
   }
 }
 @media (min-width: 1000px) and (max-width: 1399px) {
+  .header__navigation > ul > li > ul {
+    right: -17px;
+  }
   .page-inner {
     padding-top: 100px;
     padding-bottom: 60px;
@@ -5552,14 +5581,18 @@ textarea {
     padding-bottom: 0;
   }
   .header__navigation > ul > li.hasSubmenu::after {
-    content: url("../../assets/images/arrow-menu.svg");
+    content: '';
     position: absolute;
-    top: 15px;
+    top: 17px;
     right: 50px;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNyAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNiA5TDguNSAwLjk5OTk5OUwxIDkiIHN0cm9rZT0iIzIzMjMyMyIvPg0KPC9zdmc+DQo=');
+    background-repeat: no-repeat;
+    background-size: contain;
     transform: rotateZ(180deg);
   }
   .header__navigation > ul > li.hasSubmenu.submenu-active::after {
-    content: url("../../assets/images/arrow-menu.svg");
     transform: rotateZ(360deg);
   }
   .header__navigation > ul > li:not(:last-child) {
@@ -5924,11 +5957,11 @@ textarea {
   .news__item {
     padding-bottom: 20px;
     padding-top: 20px;
-    flex-direction: column;
   }
   .news__image-block {
     width: 295px;
     height: 126px;
+    margin-right: 62px;
   }
   .news__item:first-child {
     border-top: none;
@@ -6117,6 +6150,7 @@ textarea {
   }
   .delivered-card__btn {
     width: 100%;
+    margin-right: 0;
   }
   .manufacture__top {
     margin-bottom: 167px;
@@ -7416,14 +7450,18 @@ textarea {
     padding-bottom: 0;
   }
   .header__navigation > ul > li.hasSubmenu::after {
-    content: url("../../assets/images/arrow-menu.svg");
+    content: '';
     position: absolute;
-    top: 15px;
+    top: 17px;
     right: 20px;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNyAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNiA5TDguNSAwLjk5OTk5OUwxIDkiIHN0cm9rZT0iIzIzMjMyMyIvPg0KPC9zdmc+DQo=');
+    background-repeat: no-repeat;
+    background-size: contain;
     transform: rotateZ(180deg);
   }
   .header__navigation > ul > li.hasSubmenu.submenu-active::after {
-    content: url("../../assets/images/arrow-menu.svg");
     transform: rotateZ(360deg);
   }
   .header__navigation > ul > li:first-child {
@@ -8008,6 +8046,7 @@ textarea {
     order: -1;
   }
   .delivered-card__btn {
+    margin-right: 0;
     width: 100%;
   }
   .manufacture__top {
