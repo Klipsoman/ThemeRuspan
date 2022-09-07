@@ -26,30 +26,29 @@ $filterreset = strtok($filterreset, '?'); ?>
             <div class="custom-select__title description-secondary">Секторы</div>
             <div class="custom-select__body">
               <ul class="custom-select__list">
+
+              <?php
+                $term_id = 14; 
+
+                $sub_cats = get_categories( array(
+                  'child_of' => $term_id,
+                  'hide_empty' => 0
+                ) );
+
+                if( $sub_cats ){
+                  foreach( $sub_cats as $cat ){
+                ?>
+
                 <li class="custom-select__item">
                   <div class="custom-select__checkbox">
-                    <input type="checkbox" name="name1" id="name1">
+                    <input type="checkbox" name="filter[category][]" id="category_<?= $cat->term_id;?>" value="<?= $cat->term_id ;?>">
                   </div>
                   <div class="custom-select__label">
-                    <label for="name1">Торговые здания</label>
+                    <label for="category_<?= $cat->term_id;?>"><?= $cat->name;?></label>
                   </div>
                 </li>
-                <li class="custom-select__item">
-                  <div class="custom-select__checkbox">
-                    <input type="checkbox" name="name2" id="name2">
-                  </div>
-                  <div class="custom-select__label">
-                    <label for="name2">Логистические здания и склады</label>
-                  </div>
-                </li>
-                <li class="custom-select__item">
-                  <div class="custom-select__checkbox">
-                    <input type="checkbox" name="name3" id="name3">
-                  </div>
-                  <div class="custom-select__label">
-                    <label for="name3">Административные и общественные здания</label>
-                  </div>
-                </li>
+
+                <?php  } }  ?>
               </ul>
               <input class="custom-select__btn btn btn-grey" type="submit" value="Применить">
             </div>

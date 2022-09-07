@@ -28,7 +28,6 @@
           <img class="project__image search-result__img"
             src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
           <?php } ?>
-          <!-- <img src="./assets/images/project1.jpg" alt="" class="project__image" /> -->
         </div>
       </div>
 
@@ -128,7 +127,6 @@
           </div>
           <div class="about-project__right">
             <div class="about-project__video-box">
-              <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jU88mLuLWlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
               <iframe width="100%" height="100%" src="<?php the_field('p_youtube');?>" title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -153,10 +151,9 @@
           if( !empty($product_list_string) ) {
             $product_list_array = explode("=", $product_list_string);
             
-            // print_r($product_list_array);
-
           for($i = 0; $i < count($product_list_array); $i++){ 
             $product_info = json_decode( $product_list_array[$i] );
+
             $product_name = $product_info->name;
             $product_core = $product_info->core;
             $product_width = $product_info->width;
