@@ -1,6 +1,6 @@
-<!-- <?php 
+<?php 
  /*
- Template Name: Documents and sertificates
+ Template Name: Documents
  */
   get_header();
 ?>
@@ -8,9 +8,10 @@
 <!-- Page Inner -->
 <div class="page-inner">
   <div class="container">
-    <h1 class="page-header">Документы и сертификаты</h1>
+    <h1 class="page-header"><?php the_title();?></h1>
   </div>
 </div>
+
 <form action="" method="get" id="docs-main-form">
   <!-- docs-page -->
   <div class="docs-page">
@@ -44,7 +45,7 @@ global $wp_query;
                 ];
                   unset($categories);
                 }
-                }
+        }
         ?>
 
     <div class="docs-options">
@@ -62,22 +63,24 @@ global $wp_query;
                 <ul class="custom-select__list">
 
                   <?php
-                $term_id = 6; 
 
-                $sub_cats = get_categories( array(
-                  'child_of' => $term_id,
-                  'hide_empty' => 0
-                ) );
+                  $sub_cats = get_terms( [
+                    'taxonomy' => 'documents_tax',
+                    'hide_empty' => false,
+                  ] );
 
                 if( $sub_cats ){
                   foreach( $sub_cats as $cat ){
+                    // echo '<pre>';
+                    //  print_r($cat);
+                    //  echo '</pre>';
                 ?>
 
                   <li class="custom-select__item">
                     <div class="custom-select__checkbox">
                       <input type="checkbox" name="filter[category][]" id="category_<?= $cat->term_id;?>"
-                        value="<?= $cat->term_id ;?>"
-                        <?= checked( isset($_GET['filter']['category']) && in_array($cat->term_id, $_GET['filter']['category'])); ?>>
+                        value="<?= $cat->slug;?>"
+                        <?= checked( isset($_GET['filter']['category']) && in_array($cat->slug, $_GET['filter']['category'])); ?>>
                     </div>
                     <div class="custom-select__label">
                       <label for="category_<?= $cat->term_id;?>"><?= $cat->name;?></label>
@@ -96,7 +99,10 @@ global $wp_query;
 
           <div class="docs-options__right">
             <div class="docs-options__search" action="">
-              <input class="docs-options__input" type="text" name="search" id="" />
+              <?php 
+                $value_text = isset($_GET['search']) ? $_GET['search'] : '';
+              ?>
+              <input class="docs-options__input" type="text" name="search" id="" value="<?= $value_text ?>"/>
               <input class="docs-options__btn btn btn-grey" type="submit" value="Поиск">
             </div>
           </div>
@@ -119,7 +125,8 @@ global $wp_query;
         );
 
         $query_arr = [ 
-          'cat'     => isset($_GET['filter']['category']) ? $_GET['filter']['category'] : [6],
+          'post_type' => 'documents',
+          'documents_tax' => isset($_GET['filter']['category']) ? $_GET['filter']['category'] : '',
           'posts_per_page'   => isset($_GET['filter']['countperpage']) ? $_GET['filter']['countperpage'][0] : $post_per_page,
           'paged'            => $current
         ];
@@ -135,37 +142,33 @@ global $wp_query;
 
             while( $query_docs->have_posts() ) {
               $query_docs->the_post();
-              $id = get_the_ID();
+              $id = get_the_ID();            
           ?>
 
           <div class="docs__item">
             <div class="catalog">
               <div class="catalog__body">
                 <div class="catalog__link-box">
-                  <a href="<?php the_field('document_link', $id); ?>" class="catalog__link"><?php the_title(); ?></a>
+                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__link"><?php the_title(); ?></a>
                 </div>
                 <div class="catalog__type">
                   <?php 
-                      $cat = get_the_category();
-                      $cat_name = $cat[0]->name;
+                   $slag = wp_get_post_terms( $id, 'documents_tax');
 
-                      for($i = 0; $i < count($cat); $i++){
-                        $parent_id = $cat[$i]->parent;
-                        if ($parent_id !== 0) {
-                          $cat_name = $cat[$i]->name;
-                        }
+                    if (!empty($slag))  {
+                      for($i = 0; $i < count($slag); $i++){
+                          echo $slag[$i]->name;
                       }
+                  }
+                  ?>
 
-                      echo $cat_name;
-                      ?>
                 </div>
                 <div class="catalog__download-box">
-                  <a href="<?php the_field('document_link', $id); ?>" class="catalog__download-link">Скачать</a>
+                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__download-link">Скачать</a>
                 </div>
               </div>
             </div>
           </div>
-
 
           <?php }
           } else {
@@ -241,4 +244,4 @@ global $wp_query;
   </div>
 </form>
 
-<?php get_footer();?> -->
+<?php get_footer();?>

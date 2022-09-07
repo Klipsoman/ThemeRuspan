@@ -52,7 +52,7 @@
   }
 
   function ruspan_add_post_type_and_taxonomy() {
-    register_taxonomy( 'docss', 'documents', [
+    register_taxonomy( 'documents_tax', 'documents', [
       'label'                 => '', // определяется параметром $labels->name
       'labels'                => [
         'name'              => 'Добавить тип документа',
