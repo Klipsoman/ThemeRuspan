@@ -1,8 +1,4 @@
 <?php 
- /*
- Template Name: Project
- Template Post Type: post
- */
   get_header();
 ?>
 
@@ -35,7 +31,7 @@
         <div class="project__list">
           <div class="project__row">
             <div class="project__key">Год постройки</div>
-            <div class="project__value"><?php the_field('p_year');?></div>
+            <div class="project__value"><?= CFS()->get('project_year');?></div>
           </div>
           <div class="project__row">
             <div class="project__key">Название</div>
@@ -43,13 +39,12 @@
           </div>
           <div class="project__row">
             <div class="project__key">Локация</div>
-            <div class="project__value"><?php the_field('p_location');?></div>
+            <div class="project__value"><?= CFS()->get('project_location');?></div>
           </div>
           <div class="project__row">
             <div class="project__key">Поставленный продукт</div>
             <div class="project__value">
-              <a class="project__link"
-                href="<?php the_field('p_get_product_link');?>"><?php the_field('p_get_product');?></a>
+              <?= CFS()->get('project_product_link');?>
             </div>
           </div>
         </div>
@@ -62,30 +57,28 @@
   <div class="about-project">
     <div class="container">
       <h3 class="about-project__header page-title">Проект</h3>
-      <p class="about-project__descr description-secondary"><?php the_field('p_project_text');?></p>
+      <p class="about-project__descr description-secondary"><?= CFS()->get('project_project_text');?></p>
 
       <!-- Slider -->
       <div class="slider">
-
         <?php 
-        // $the_post = get_post( get_field('p_object') );
+        $slider = CFS()->get( 'project_slider' );
         // echo '<pre>';
-        // print_r($the_post);
+        // print_r($slider);
         // echo '</pre>';
-        $slider_images_string = get_field('p_slider');    
-        ?>
+      ?>
         <div class="swiper" id="about-project__swiper">
 
           <div class="swiper-wrapper">
 
-            <?php if( !empty($slider_images_string) ) {
-              $slider_images_array = explode("\n", $slider_images_string);
-
-              for($i = 0; $i < count($slider_images_array); $i++){ ?>
+            <?php 
+              if( !empty($slider) ){
+                foreach ( $slider as $slide ) {            
+            ?>
 
             <div class="swiper-slide">
               <div class="swiper__image-block">
-                <img class="slider-img" src="<?= $slider_images_array[$i];?>" alt="" />
+                <img class="slider-img" src="<?= $slide['project_slider_img']; ?>" alt="" />
               </div>
             </div>
 
@@ -114,20 +107,20 @@
       <div class="about-project__content">
         <div class="about-project__question">
           <div class="about-project__title description">В чем состояла задача?</div>
-          <div class="about-project__text description-secondary"><?php the_field('p_task');?></div>
+          <div class="about-project__text description-secondary"><?= CFS()->get('project_task');?></div>
         </div>
         <div class="about-project__answer">
           <div class="about-project__title description">Решение</div>
-          <div class="about-project__text description-secondary"><?php the_field('p_solution');?></div>
+          <div class="about-project__text description-secondary"><?= CFS()->get('project_solution');?></div>
         </div>
         <div class="about-project__result">
           <div class="about-project__left">
             <div class="about-project__title description">Какой результат?</div>
-            <div class="about-project__text description-secondary"><?php the_field('p_result');?></div>
+            <div class="about-project__text description-secondary"><?= CFS()->get('project_result');?></div>
           </div>
           <div class="about-project__right">
             <div class="about-project__video-box">
-              <iframe width="100%" height="100%" src="<?php the_field('p_youtube');?>" title="YouTube video player"
+              <iframe width="100%" height="100%" src="<?= CFS()->get('project_youtube');?>" title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
@@ -273,24 +266,31 @@
       <div class="swiper" id="project-page__swiper">
         <div class="swiper-wrapper">
 
-          <?php 
-              $query_arr = [ 
-                // id13 - рубрика проекты
-                 'cat'     => [13],
-                 'posts_per_page'   => 9
-               ];
-  
-               $query_projets = new WP_Query( $query_arr );
-  
-               if ($query_projets->have_posts()) {
-  
-               while( $query_projets->have_posts() ) {
-                  $query_projets->the_post();
-                  $id = get_the_ID();
-            ?>
+          <?php     
+          $current = absint(
+            max(
+              1,
+              get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' )
+            )
+          );
+     
+          $query_arr = [ 
+            'post_type'     => 'projects',
+            'posts_per_page'   => 9,
+            'paged'            => $current
+          ];
+
+          $query_projects = new WP_Query( $query_arr );
+            if ($query_projects->have_posts()) {
+
+            while( $query_projects->have_posts() ) {
+              $query_projects->the_post();
+              $id = get_the_ID();
+          ?>
 
           <div class="swiper-slide">
-            <div class="swiper__image-block">
+            <a href="<?php the_permalink($id);?>">
+              <div class="swiper__image-block">
                 <?php 
                 if (has_post_thumbnail()) {
                   the_post_thumbnail();
@@ -299,19 +299,20 @@
                 <img class="search-result__img" src="https://www.pinecliffs.com/static/images/cms/default_image.png"
                   alt="" />
                 <?php } ?>
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title"><?php the_field('p_client'); ?></div>
               </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  <?php the_title(); ?>
+              <div class="swiper-slide__info projects__info">
+                <div class="swiper-slide__item">
+                  Клиент
+                  <div class="swiper-slide__title"><?php the_field('p_client'); ?></div>
+                </div>
+                <div class="swiper-slide__item">
+                  Проект
+                  <div class="swiper-slide__title">
+                    <?php the_title(); ?>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <?php } } 
@@ -334,7 +335,7 @@
           </div>
         </div>
         <div class="projects__more">
-          <a href="" class="link link-arrow">Все проекты</a>
+          <a href="http://rp1/projects/" class="link link-arrow">Все проекты</a>
         </div>
       </div>
     </div>

@@ -11,9 +11,42 @@ $filterreset = strtok($filterreset, '?'); ?>
 <!-- Page Inner -->
 <div class="page-inner">
   <div class="container">
-    <h1 class="page-header">Проекты</h1>
+    <h1 class="page-header"><?php the_title(); ?></h1>
   </div>
 </div>
+
+<?php
+
+// global $wp_query;
+  if (isset($_REQUEST['filter']['countperpage']) ) { 
+   $post_per_page = $_REQUEST['filter']['countperpage'][0];  
+  } else {
+    $post_per_page = 12;
+  }
+
+//         if (isset($_REQUEST['filter'])) {
+
+//           $query = [
+//             'tax_query' => [
+//               'relation' => 'AND',     
+//             ]
+//             ];
+            
+//             if ( isset($_REQUEST['filter']['category']) && is_array($_REQUEST['filter']['category'])) {
+//               $categories = Array();
+              
+//               foreach($_REQUEST['filter']['category'] as $category) 
+//                 $categories[] = intval($category);
+                
+//                 $query['tax_query'][] = [
+//                   'taxonomy' => 'category',
+//                   'field'    => 'term_id',
+//                   'terms'    => $categories
+//                 ];
+//                   unset($categories);
+//                 }
+//         }
+        ?>
 
 <!-- projects-page -->
 <div class="projects-page">
@@ -27,13 +60,12 @@ $filterreset = strtok($filterreset, '?'); ?>
             <div class="custom-select__body">
               <ul class="custom-select__list">
 
-              <?php
-                $term_id = 14; 
-
-                $sub_cats = get_categories( array(
-                  'child_of' => $term_id,
-                  'hide_empty' => 0
-                ) );
+                <?php
+                $sub_cats = get_terms( [
+                  'taxonomy' => 'projects_sectors_tax',
+                  'hide_empty' => false,
+                  'order' => 'DESC'
+                ] );
 
                 if( $sub_cats ){
                   foreach( $sub_cats as $cat ){
@@ -41,7 +73,9 @@ $filterreset = strtok($filterreset, '?'); ?>
 
                 <li class="custom-select__item">
                   <div class="custom-select__checkbox">
-                    <input type="checkbox" name="filter[category][]" id="category_<?= $cat->term_id;?>" value="<?= $cat->term_id ;?>">
+                    <input type="checkbox" name="filter[category][]" id="category_<?= $cat->term_id;?>"
+                      value="<?= $cat->slug ;?>"
+                      <?= checked( isset($_GET['filter']['category']) && in_array($cat->slug, $_GET['filter']['category'])); ?>>
                   </div>
                   <div class="custom-select__label">
                     <label for="category_<?= $cat->term_id;?>"><?= $cat->name;?></label>
@@ -79,7 +113,10 @@ $filterreset = strtok($filterreset, '?'); ?>
             </div>
           </div>
 
-          <a href="<?php echo $filterreset; ?>" class="projects__reset">Сбросить фильтры x</a>
+          <?php 
+            if (isset($_GET['filter']['category'])) { ?>
+              <a href="<?php echo $filterreset; ?>" class="projects__reset">Сбросить фильтры x</a>
+          <?php  }  ?>
 
         </div>
         <div class="projects__list">
@@ -94,10 +131,10 @@ $filterreset = strtok($filterreset, '?'); ?>
              );
      
              $query_arr = [ 
-              // id13 - рубрика проекты
-               'cat'     => [13],
-               'posts_per_page'   => 12,
-               'paged'            => $current
+               'post_type'     => 'projects',
+               'projects_sectors_tax' => isset($_GET['filter']['category']) ? $_GET['filter']['category'] : '',
+               'posts_per_page'   => $post_per_page,
+               'paged'            => $current,
              ];
 
              $query_projects = new WP_Query( $query_arr );
@@ -108,13 +145,10 @@ $filterreset = strtok($filterreset, '?'); ?>
                 $query_projects->the_post();
                 $id = get_the_ID();
           ?>
-          
+
           <?php 
-                $tags = wp_get_post_tags( $post->ID );
-                // echo '<pre>';
-                // print_r( $tags  );
-                // echo '</pre>';
-                ?>
+            // $tags = wp_get_post_tags( $post->ID );
+          ?>
 
           <div class="projects__item">
             <a href="<?php the_permalink(); ?>" class="projects__link">
@@ -129,10 +163,9 @@ $filterreset = strtok($filterreset, '?'); ?>
                 <?php } ?>
               </div>
               <div class="projects__info">
-           
                 <div class="projects__title-box">
                   Клиент
-                  <div class="projects__title"><?php the_field('p_client'); ?></div>
+                  <div class="projects__title"><?= CFS()->get('project_client'); ?></div>
                 </div>
                 <div class="projects__title-box">
                   Проект
@@ -153,7 +186,7 @@ $filterreset = strtok($filterreset, '?'); ?>
           <div class="projects-page-pagination pagination">
             <div class="container">
               <div class="pagination__items">
-              <?php 
+                <?php 
                 echo wp_kses_post(
                   paginate_links(
                     [
@@ -176,7 +209,7 @@ $filterreset = strtok($filterreset, '?'); ?>
           <!-- !pagination -->
           <div class="amount" id="projects-and-sertificates-amount">
             <div class="amount__body">
-              <div class="amount__title description-secondary" data-mount="12">12</div>
+              <div class="amount__title description-secondary" data-mount="12"><?php echo $post_per_page;?></div>
               <ul class="amount__list">
                 <li class="amount__item">
                   <label for="" data-mount="12">
@@ -215,10 +248,11 @@ $filterreset = strtok($filterreset, '?'); ?>
       <div class="container">
         <div class="catalog__body">
           <div class="catalog__link-box">
-            <a href="" class="catalog__link">Скачать каталог "Портфолио" (pdf)</a>
+            <a href="<?= CFS()->get('projects_doc_upload') ?>" class="catalog__link" download>Скачать
+              <?= CFS()->get('projects_doc_name') ?></a>
           </div>
           <div class="catalog__download-box">
-            <a href="" class="catalog__download-link">Скачать</a>
+            <a href="<?= CFS()->get('projects_doc_upload') ?>" class="catalog__download-link" download>Скачать</a>
           </div>
         </div>
       </div>
