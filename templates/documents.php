@@ -145,7 +145,7 @@ global $wp_query;
             <div class="catalog">
               <div class="catalog__body">
                 <div class="catalog__link-box">
-                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__link" download><?php the_title(); ?></a>
+                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__link"><?php the_title(); ?></a>
                 </div>
                 <div class="catalog__type">
                   <?php 
