@@ -139,78 +139,73 @@
       <div class="delivered-products__header page-title">Поставленные продукты</div>
       <div class="delivered-products__list">
         <?php
-          $product_list_string = get_field('p_product_list'); 
-
-          if( !empty($product_list_string) ) {
-            $product_list_array = explode("=", $product_list_string);
-            
-          for($i = 0; $i < count($product_list_array); $i++){ 
-            $product_info = json_decode( $product_list_array[$i] );
-
-            $product_name = $product_info->name;
-            $product_core = $product_info->core;
-            $product_width = $product_info->width;
-            $product_thick = $product_info->thick;
-            $product_type = $product_info->type;
-            $product_connection = $product_info->connection;
-            $product_link = $product_info->link;
-            $product_img = $product_info->img;
-          ?>
-
-        <div class="delivered-products__item delivered-card">
+         $products = CFS()->get('project_products');
+                  if ( !empty($products) ) {
+                    foreach ( $products as $product ) { ?>
+                        <div class="delivered-products__item delivered-card">
           <div class="delivered-card__top">
             <div class="delivered-card__info">
-              <div class="delivered-card__title description"><?= $product_name; ?></div>
+              <div class="delivered-card__title description"><?= $product['project_products_name']; ?></div>
 
               <div class="delivered-card__list description-secondary">
                 <div class="delivered-card__item">
                   <div class="delivered-card__key">Cердечник:</div>
-                  <div class="delivered-card__value"><?= $product_core; ?></div>
+                  <div class="delivered-card__value"><?= $product['project_products_heart']; ?></div>
                 </div>
                 <div class="delivered-card__item">
                   <div class="delivered-card__key">Ширина:</div>
-                  <div class="delivered-card__value"><?= $product_width; ?></div>
+                  <div class="delivered-card__value"><?= $product['project_products_width']; ?></div>
                 </div>
                 <div class="delivered-card__item">
                   <div class="delivered-card__key">Толщина:</div>
-                  <div class="delivered-card__value"><?= $product_thick;?></div>
+                  <div class="delivered-card__value"><?= $product['project_products_thick']; ?></div>
                 </div>
                 <div class="delivered-card__item">
                   <div class="delivered-card__key">Тип замка:</div>
-                  <div class="delivered-card__value"><?= $product_type;?></div>
+                  <div class="delivered-card__value"><?= $product['project_products_type']; ?></div>
                 </div>
                 <div class="delivered-card__item">
                   <div class="delivered-card__key">Соединение:</div>
-                  <div class="delivered-card__value"><?= $product_connection;?></div>
+                  <div class="delivered-card__value"><?= $product['project_products_connect']; ?></div>
                 </div>
               </div>
 
             </div>
             <div class="delivered-card__image-box">
-              <img src="<?= $product_img;?>" alt="" class="delivered-card__image">
+              <img src="<?= $product['project_products_img']; ?>" alt="" class="delivered-card__image">
             </div>
           </div>
           <div class="delivered-card__bottom">
             <div class="delivered-card__left">
-              <a class="delivered-card__btn btn-gold btn" href="<?= $product_link; ?>">Подробнее</a>
+              <a class="delivered-card__btn btn-gold btn" href="<?= $product['project_products_link']; ?>">Подробнее</a>
             </div>
             <div class="delivered-card__right">
-              <div class="tags">
-                <?php 
-                  $product_tags = $product_info->tags;
-                  for($j = 0; $j < count($product_tags); $j++) {
-                    $tag_title = $product_tags[$j]->title;
-                    $tag_color = $product_tags[$j]->color; ?>
-                <div class="tag <?= $tag_color; ?>"><?= $tag_title; ?></div>
-                <?php  } ?>
+              <div class="tags">  
+              <?php 
+                $tags = $product['project_products_tags'];
+                if ( !empty($tags) ) {
+                  foreach ( $tags as $tag ) { 
+                    $tag_color = $tag['project_products_tags_color'];
+                    $tag_color_gold = array_key_exists('gold', $tag_color) ? 'gold' : '';
+                    $tag_color_blue = array_key_exists('blue', $tag_color) ? 'blue' : '';
+                ?>
+                <div class="tag tag-<?php
+                if ($tag_color_gold) {
+                  echo $tag_color_gold;
+                } else {
+                  echo $tag_color_blue;
+                }
+                 ?>"><?= $tag['project_products_tags_name']?></div>
+                <?php } } ?>
               </div>
             </div>
           </div>
         </div>
+                    
+        <?php  }  }  ?>
 
-        <?php } }?>
 
-        <div class="delivered-products__item delivered-card">
+        <!-- <div class="delivered-products__item delivered-card">
           <div class="delivered-card__top">
             <div class="delivered-card__info">
               <div class="delivered-card__title description">Сэндвич-панели FR</div>
@@ -254,7 +249,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
