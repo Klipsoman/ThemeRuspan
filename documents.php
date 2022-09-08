@@ -71,9 +71,6 @@ global $wp_query;
 
                 if( $sub_cats ){
                   foreach( $sub_cats as $cat ){
-                    // echo '<pre>';
-                    //  print_r($cat);
-                    //  echo '</pre>';
                 ?>
 
                   <li class="custom-select__item">
@@ -116,7 +113,6 @@ global $wp_query;
         <div class="docs__list">
 
           <?php 
-
         $current = absint(
           max(
             1,
@@ -149,7 +145,7 @@ global $wp_query;
             <div class="catalog">
               <div class="catalog__body">
                 <div class="catalog__link-box">
-                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__link"><?php the_title(); ?></a>
+                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__link" download><?php the_title(); ?></a>
                 </div>
                 <div class="catalog__type">
                   <?php 
@@ -161,10 +157,9 @@ global $wp_query;
                       }
                   }
                   ?>
-
                 </div>
                 <div class="catalog__download-box">
-                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__download-link">Скачать</a>
+                  <a href="<?= CFS()->get('doc_upload'); ?>" class="catalog__download-link" download>Скачать</a>
                 </div>
               </div>
             </div>
