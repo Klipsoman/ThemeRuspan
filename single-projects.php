@@ -204,52 +204,6 @@
                     
         <?php  }  }  ?>
 
-
-        <!-- <div class="delivered-products__item delivered-card">
-          <div class="delivered-card__top">
-            <div class="delivered-card__info">
-              <div class="delivered-card__title description">Сэндвич-панели FR</div>
-
-              <div class="delivered-card__list description-secondary">
-                <div class="delivered-card__item">
-                  <div class="delivered-card__key">Cердечник:</div>
-                  <div class="delivered-card__value">Мин. вата</div>
-                </div>
-                <div class="delivered-card__item">
-                  <div class="delivered-card__key">Ширина:</div>
-                  <div class="delivered-card__value">1000/1190/1200 мм</div>
-                </div>
-                <div class="delivered-card__item">
-                  <div class="delivered-card__key">Толщина:</div>
-                  <div class="delivered-card__value">от 50 до 200 мм.</div>
-                </div>
-                <div class="delivered-card__item">
-                  <div class="delivered-card__key">Тип замка:</div>
-                  <div class="delivered-card__value">Standard</div>
-                </div>
-                <div class="delivered-card__item">
-                  <div class="delivered-card__key">Соединение:</div>
-                  <div class="delivered-card__value">«Лабиринт» и прямой</div>
-                </div>
-              </div>
-
-            </div>
-            <div class="delivered-card__image-box">
-              <img src="./assets/images/delivered2.jpg" alt="" class="delivered-card__image">
-            </div>
-          </div>
-          <div class="delivered-card__bottom">
-            <div class="delivered-card__left">
-              <button class="delivered-card__btn btn-gold btn">Подробнее</button>
-            </div>
-            <div class="delivered-card__right">
-              <div class="tags">
-                <div class="tag tag-gold">Минеральная вата</div>
-                <div class="tag tag-blue">Стеновые</div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -298,7 +252,7 @@
               <div class="swiper-slide__info projects__info">
                 <div class="swiper-slide__item">
                   Клиент
-                  <div class="swiper-slide__title"><?php the_field('p_client'); ?></div>
+                  <div class="swiper-slide__title"><?= CFS()->get('project_client'); ?></div>
                 </div>
                 <div class="swiper-slide__item">
                   Проект

@@ -3034,6 +3034,46 @@ textarea {
   top: -1000000px;
 }
 
+.sandvich-panel {
+  border: 1px solid #585858;
+  cursor: pointer;
+}
+.sandvich-panel:hover {
+  background-color: #F0F5FB;
+}
+.sandvich-panel__image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sandvich-panel__info {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.sandvich-panel__tags {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+.sandvich-panel__list {
+  margin-top: 15px;
+  color: #9f9f9f;
+}
+.sandvich-panel__item {
+  display: flex;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+.sandvich-panel__title {
+  margin-top: 15px;
+}
+.sandvich-panel__key {
+  margin-right: 5px;
+}
+.sandvich-panel__tags {
+  padding-top: 10px;
+}
+
 .abouts {
   padding-top: 150px;
   padding-bottom: 200px;
@@ -4487,6 +4527,54 @@ textarea {
   margin-bottom: 200px;
 }
 
+.sandvich-panels-page .sandvich-panels-inner {
+  background-color: #F0F5FB;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.sandvich-panels-page .sandvich-panels-inner__content {
+  display: grid;
+  grid-template-columns: 306px 487px 407px;
+}
+.sandvich-panels-page .sandvich-panels-inner__left {
+  padding-right: 106px;
+}
+.sandvich-panels-page .sandvich-panels-inner__middle {
+  padding-right: 109px;
+}
+.sandvich-panels-page .sandvich-panels-inner__title {
+  margin-bottom: 20px;
+}
+.sandvich-panels-page .sandvich-panels-inner__info:nth-child(2) {
+  margin-top: 50px;
+}
+.sandvich-panels-page .sandvich-panels-table__content {
+  margin-top: 100px;
+  display: flex;
+}
+.sandvich-panels-page .sandvich-panels-table__left {
+  width: 306px;
+  padding-right: 115px;
+}
+.sandvich-panels-page .sandvich-panels-table__right {
+  flex-grow: 1;
+}
+.sandvich-panels-page .sandvich-panels-table__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 22px;
+}
+.sandvich-panels-page .catalog {
+  margin-top: 150px;
+  margin-bottom: 200px;
+}
+.sandvich-panels-page .sandvich-panels-footer {
+  display: none;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #F0F5FB;
+}
+
 @media (min-width: 1000px) and (max-width: 1399px) {
   .link-fz-standart {
     font-size: 16px;
@@ -5436,6 +5524,45 @@ textarea {
   }
   .projects-page .catalog {
     margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .sandvich-panels-page .sandvich-panels-inner {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__content {
+    display: grid;
+    grid-template-columns: 30% 35% 35%;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__left {
+    padding-right: 97px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__middle {
+    padding-right: 44px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__right {
+    padding-left: 15px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__title {
+    margin-bottom: 15px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__info:nth-child(2) {
+    margin-top: 30px;
+  }
+  .sandvich-panels-page .sandvich-panels-table__content {
+    margin-top: 80px;
+  }
+  .sandvich-panels-page .sandvich-panels-table__left {
+    width: 325px;
+    padding-right: 100px;
+  }
+  .sandvich-panels-page .sandvich-panels-table__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+  .sandvich-panels-page .catalog {
+    margin-top: 120px;
     margin-bottom: 100px;
   }
 }
@@ -7280,6 +7407,55 @@ textarea {
   .projects-page .catalog {
     margin-top: 80px;
     margin-bottom: 100px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__content {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__left {
+    padding-right: 0;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__middle {
+    display: none;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__right {
+    display: none;
+  }
+  .sandvich-panels-page .sandvich-panels-table__content {
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+  .sandvich-panels-page .sandvich-panels-table__left {
+    width: 100%;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
+  .sandvich-panels-page .sandvich-panels-table__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  .sandvich-panels-page .catalog {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer {
+    display: block;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__content {
+    display: flex;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__title {
+    margin-bottom: 20px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__info:nth-child(2) {
+    margin-top: 40px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__info {
+    padding-right: 20px;
   }
 }
 @media (min-width: 640px) and (max-width: 999px) {
@@ -9248,6 +9424,62 @@ textarea {
   .projects-page .catalog {
     margin-top: 80px;
     margin-bottom: 100px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__content {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__left {
+    padding-right: 0;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__middle {
+    display: none;
+  }
+  .sandvich-panels-page .sandvich-panels-inner__right {
+    display: none;
+  }
+  .sandvich-panels-page .sandvich-panels-table__content {
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+  .sandvich-panels-page .sandvich-panels-table__left {
+    width: 100%;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
+  .sandvich-panels-page .sandvich-panels-table__list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+  }
+  .sandvich-panels-page .catalog {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer {
+    display: block;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__column {
+    flex-basis: 100%;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__column:nth-child(2) {
+    margin-top: 40px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__title {
+    margin-bottom: 20px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__info:nth-child(2) {
+    margin-top: 40px;
+  }
+  .sandvich-panels-page .sandvich-panels-footer__info {
+    padding-right: 20px;
   }
 }
 @media (min-width: 1000px) and (max-width: 1010px) {

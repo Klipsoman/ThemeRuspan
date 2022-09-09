@@ -146,10 +146,6 @@ $filterreset = strtok($filterreset, '?'); ?>
                 $id = get_the_ID();
           ?>
 
-          <?php 
-            // $tags = wp_get_post_tags( $post->ID );
-          ?>
-
           <div class="projects__item">
             <a href="<?php the_permalink(); ?>" class="projects__link">
               <div class="projects__image-box">

@@ -15,7 +15,6 @@
   </div>
 </div>
 
-
 <!-- product-page -->
 <div class="product-page">
 
