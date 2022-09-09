@@ -72,22 +72,13 @@
       ],
       'description'           => '', // описание таксономии
       'public'                => true,
-      // 'publicly_queryable'    => null, // равен аргументу public
-      // 'show_in_nav_menus'     => true, // равен аргументу public
-      // 'show_ui'               => true, // равен аргументу public
-      // 'show_in_menu'          => true, // равен аргументу show_ui
-      // 'show_tagcloud'         => true, // равен аргументу show_ui
-      // 'show_in_quick_edit'    => null, // равен аргументу show_ui
       'hierarchical'          => false,
       'rewrite'               => true,
-      //'query_var'             => $taxonomy, // название параметра запроса
       'capabilities'          => array(),
       'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
       'show_admin_column'     => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
       'show_in_rest'          => null, // добавить в REST API
       'rest_base'             => null, // $taxonomy
-      // '_builtin'              => false,
-      //'update_count_callback' => '_update_post_term_count',
     ] );
 
     register_post_type( 'documents', [
@@ -109,14 +100,10 @@
       'description'         => '',
       'public'              => true,
       'show_in_menu'        => true, // показывать ли в меню адмнки
-      // 'show_in_admin_bar'   => null, // зависит от show_in_menu
       'show_in_rest'        => null, // добавить в REST API. C WP 4.7
       'rest_base'           => null, // $post_type. C WP 4.7
       'menu_position'       => null,
       'menu_icon'           => 'dashicons-media-default',
-      //'capability_type'   => 'post',
-      //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-      //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
       'hierarchical'        => false,
       'supports'            => [ 'title' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
       'taxonomies'          => ['projects_tax'],
@@ -124,7 +111,6 @@
       'rewrite'             => true,
       'query_var'           => true,
     ] );
-
 
     // Тип записи и таксономии для проекта
     register_taxonomy( 'projects_sectors_tax', 'projects', [
@@ -146,22 +132,13 @@
       ],
       'description'           => '', // описание таксономии
       'public'                => true,
-      // 'publicly_queryable'    => null, // равен аргументу public
-      // 'show_in_nav_menus'     => true, // равен аргументу public
-      // 'show_ui'               => true, // равен аргументу public
-      // 'show_in_menu'          => true, // равен аргументу show_ui
-      // 'show_tagcloud'         => true, // равен аргументу show_ui
-      // 'show_in_quick_edit'    => null, // равен аргументу show_ui
       'hierarchical'          => false,
       'rewrite'               => true,
-      //'query_var'             => $taxonomy, // название параметра запроса
       'capabilities'          => array(),
       'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
       'show_admin_column'     => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
       'show_in_rest'          => null, // добавить в REST API
       'rest_base'             => null, // $taxonomy
-      // '_builtin'              => false,
-      //'update_count_callback' => '_update_post_term_count',
     ] );
 
     register_post_type( 'projects', [
@@ -183,17 +160,73 @@
       'description'         => '',
       'public'              => true,
       'show_in_menu'        => true, // показывать ли в меню адмнки
-      // 'show_in_admin_bar'   => null, // зависит от show_in_menu
       'show_in_rest'        => null, // добавить в REST API. C WP 4.7Также влияет на работу блочного редактора Gutenberg: true - редактор Gutenberg включен для этого типа записи, false - будет использоваться обычный редактор.
       'rest_base'           => null, // $post_type. C WP 4.7
       'menu_position'       => null,
       'menu_icon'           => 'dashicons-hammer',
-      //'capability_type'   => 'post',
-      //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-      //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
       'hierarchical'        => false,
-      'supports'            => [ 'title', 'editor','thumbnail' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+      'supports'            => [ 'title', 'thumbnail' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
       'taxonomies'          => ['projects_sectors_tax'],
+      'has_archive'         => false,
+      'rewrite'             => true,
+      'query_var'           => true,
+    ] );
+
+    // Тип записи и таксономии для сендвич панелей
+    register_taxonomy( 'panels_types', 'panels', [
+      'label'                 => '', // определяется параметром $labels->name
+      'labels'                => [
+        'name'              => 'Типы',
+        'singular_name'     => 'Тип',
+        'search_items'      => 'Поиск по типу',
+        'all_items'         => 'Все типы',
+        'view_item '        => 'Просмотр',
+        'parent_item'       => 'Родительские типы',
+        'parent_item_colon' => 'Родительские типы:',
+        'edit_item'         => 'Редактировать',
+        'update_item'       => 'Обновить',
+        'add_new_item'      => 'Добавить новый тип',
+        'new_item_name'     => 'Введите наименование',
+        'menu_name'         => 'Типы панелей',
+        'back_to_items'     => '← Назад',
+      ],
+      'description'           => '',
+      'public'                => true,
+      'hierarchical'          => false,
+      'rewrite'               => true,
+      'capabilities'          => array(),
+      'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
+      'show_admin_column'     => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
+      'show_in_rest'          => null, // добавить в REST API
+      'rest_base'             => null, // $taxonomy
+    ] );
+
+    register_post_type( 'panels', [
+      'label'  => null,
+      'labels' => [
+        'name'               => 'Сендвич-панели', // основное название для типа записи
+        'singular_name'      => 'Сендвич-панель', // название для одной записи этого типа
+        'add_new'            => 'Добавить Сендвич-панель', // для добавления новой записи
+        'add_new_item'       => 'Добавление Сендвич-панели', // заголовка у вновь создаваемой записи в админ-панели.
+        'edit_item'          => 'Редактирование Сендвич-панели', // для редактирования типа записи
+        'new_item'           => 'Новая Сендвич-панель', // текст новой записи
+        'view_item'          => 'Просмотр Сендвич-панели', // для просмотра записи этого типа.
+        'search_items'       => 'Искать Сендвич-панель', // для поиска по этим типам записи
+        'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+        'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+        'parent_item_colon'  => '', // для родителей (у древовидных типов)
+        'menu_name'          => 'Сендвич-панели', // название меню
+      ],
+      'description'         => '',
+      'public'              => true,
+      'show_in_menu'        => true, // показывать ли в меню адмнки
+      'show_in_rest'        => null, // добавить в REST API. C WP 4.7Также влияет на работу блочного редактора Gutenberg: true - редактор Gutenberg включен для этого типа записи, false - будет использоваться обычный редактор.
+      'rest_base'           => null, // $post_type. C WP 4.7
+      'menu_position'       => null,
+      'menu_icon'           => 'dashicons-admin-multisite',
+      'hierarchical'        => false,
+      'supports'            => [ 'title', 'thumbnail' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+      'taxonomies'          => ['panels_types'],
       'has_archive'         => false,
       'rewrite'             => true,
       'query_var'           => true,

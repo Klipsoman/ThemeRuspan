@@ -2633,6 +2633,9 @@ textarea {
 .product-page-inner__tags {
   margin-top: 20px;
 }
+.product-page-inner__tags .tags {
+  justify-content: flex-start;
+}
 
 .subscribe__content {
   display: flex;
@@ -3072,6 +3075,68 @@ textarea {
 }
 .sandvich-panel__tags {
   padding-top: 10px;
+}
+
+.tabs__item {
+  border-top: 1px solid #585858;
+  overflow: hidden;
+}
+.tabs__item:last-child {
+  border-bottom: 1px solid #585858;
+}
+.tabs__item.visible .tabs__down {
+  display: block;
+}
+.tabs__item.visible .tabs__icon::after {
+  display: none;
+}
+.tabs__item.visible .tabs__up {
+  background-color: #F0F5FB;
+}
+.tabs__up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 20px 15px 20px;
+  cursor: pointer;
+}
+.tabs__up:hover {
+  background-color: #F0F5FB;
+}
+.tabs__down {
+  display: none;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.tabs__down > * + * {
+  margin-top: 50px;
+}
+.tabs__icon {
+  width: 15px;
+  height: 15px;
+  position: relative;
+}
+.tabs__icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: black;
+}
+.tabs__icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: black;
+  transform: rotate(180deg);
+}
+.tabs__title {
+  color: #232323;
 }
 
 .abouts {
@@ -3769,6 +3834,12 @@ textarea {
 .product-page .components__descr {
   margin-bottom: 30px;
   padding-right: 46px;
+}
+.product-page .tech-info {
+  margin-bottom: 150px;
+}
+.product-page .tech-info__header {
+  margin-bottom: 30px;
 }
 .product-page .use-areas {
   margin-bottom: 150px;
@@ -5282,6 +5353,9 @@ textarea {
   .product-page .components__descr {
     margin-bottom: 40px;
     padding-right: 0px;
+  }
+  .product-page .tech-info {
+    margin-bottom: 130px;
   }
   .product-page .use-areas {
     margin-bottom: 100px;
@@ -6963,6 +7037,9 @@ textarea {
   .product-page .components__descr {
     margin-bottom: 20px;
     padding-right: 0px;
+  }
+  .product-page .tech-info {
+    margin-bottom: 80px;
   }
   .product-page .use-areas {
     margin-bottom: 80px;
@@ -8960,6 +9037,9 @@ textarea {
   .product-page .components__descr {
     margin-bottom: 20px;
     padding-right: 0px;
+  }
+  .product-page .tech-info {
+    margin-bottom: 60px;
   }
   .product-page .use-areas {
     margin-bottom: 60px;
