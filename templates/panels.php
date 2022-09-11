@@ -81,7 +81,13 @@
 
                   <a class="sandvich-panels-table__item sandvich-panel" href="<?php the_permalink(); ?>">
                     <div class="sandvich-panel__image-box">
-                      <img src="<?= CFS()->get('panel_image');?>" alt="" class="sandvich-panel__image">
+                    <?php 
+                      if (has_post_thumbnail()) {
+                        the_post_thumbnail();
+                      } else {
+                        ?>
+                      <img class="sandvich-panel__image" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
+                    <?php } ?>
                     </div>
                     <div class="sandvich-panel__info">
                       <div class="sandvich-panel__title description"><?= the_title();?></div>
