@@ -62,7 +62,14 @@
         </div>
         <div class="product__right">
           <div class="product__image-box">
-            <img src="<?= CFS()->get('panel_image');?>" alt="" class="product__image">
+            <?php 
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail();
+                  } else {
+                    ?>
+            <img class="product__image"
+              src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
+            <?php } ?>
           </div>
         </div>
         <div class="product__laptop">
@@ -125,9 +132,7 @@
       <div class="components__content">
         <?php 
           $panel_select = CFS()->get('panel_select');
-          // echo '<pre>';
-          // print_r($panel_select);
-          // echo '</pre>';
+
           if ( !empty($panel_select) ) {
             foreach ( $panel_select as $sel ) { 
 

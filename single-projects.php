@@ -63,9 +63,7 @@
       <div class="slider">
         <?php 
         $slider = CFS()->get( 'project_slider' );
-        // echo '<pre>';
-        // print_r($slider);
-        // echo '</pre>';
+
       ?>
         <div class="swiper" id="about-project__swiper">
 
