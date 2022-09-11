@@ -271,28 +271,28 @@
           <ul class="page-links__list">
             <li class="page-links__item">
               <a
-                href=""
+                href="<?php the_permalink( 42 )?>"
                 class="bvz-links__link page-links__link link link-arrow"
                 >Наша история</a
               >
             </li>
             <li class="page-links__item">
-              <a href="" class="page-links__link link link-arrow"
+              <a href="<?php the_permalink( 53 )?>" class="page-links__link link link-arrow"
                 >Наше производство</a
               >
             </li>
             <li class="page-links__item">
-              <a href="" class="page-links__link link link-arrow"
+              <a href="<?php the_permalink( 244 )?>" class="page-links__link link link-arrow"
                 >Документы и сертификаты</a
               >
             </li>
             <li class="page-links__item">
-              <a href="" class="page-links__link link link-arrow"
+              <a href="<?php the_permalink( 48 )?>" class="page-links__link link link-arrow"
                 >Сотрудничество</a
               >
             </li>
             <li class="page-links__item">
-              <a href="" class="page-links__link link link-arrow">Карьера</a>
+              <a href="<?php the_permalink( 45 )?>" class="page-links__link link link-arrow">Карьера</a>
             </li>
           </ul>
         </div>
