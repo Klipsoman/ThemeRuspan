@@ -13,7 +13,7 @@
     ?>">Политика конфиденциальности и Cookies</a>
   </div>
   <div class="main-footer__development">
-    <a class="main-footer__link link link-border" href="">Разработка сайта — <span
+    <a class="main-footer__link link link-border" href="https://d-roi.ru/">Разработка сайта — <span
         class="main-footer__developer">агентство D-ROI</span></a>
   </div>
 </div>
