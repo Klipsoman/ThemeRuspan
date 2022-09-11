@@ -3038,6 +3038,8 @@ textarea {
 }
 
 .sandvich-panel {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #585858;
   cursor: pointer;
 }
@@ -3074,7 +3076,11 @@ textarea {
   margin-right: 5px;
 }
 .sandvich-panel__tags {
+  margin-top: auto;
   padding-top: 10px;
+}
+.sandvich-panel__tags .tags {
+  justify-content: flex-start;
 }
 
 .tabs__item {
@@ -4625,6 +4631,7 @@ textarea {
 }
 .sandvich-panels-page .sandvich-panels-table__left {
   width: 306px;
+  flex-shrink: 0;
   padding-right: 115px;
 }
 .sandvich-panels-page .sandvich-panels-table__right {

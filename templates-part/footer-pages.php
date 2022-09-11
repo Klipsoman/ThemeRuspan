@@ -63,7 +63,7 @@
             <div class="contacts__item">
               <div class="contacts__title">Мы в соцсетях</div>
               <div class="contacts__descr">
-                <a class="contacts__link link link-arrow" href="">Вконтакте</a>
+                <a class="contacts__link link link-arrow" href="https://vk.com/kingspan_russia">Вконтакте</a>
               </div>
             </div>
 

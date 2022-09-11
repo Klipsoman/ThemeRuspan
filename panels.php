@@ -47,280 +47,71 @@
 
     <div class="sandvich-panels-table">
       <div class="container">
-        <div class="sandvich-panels-table__content">
-          <div class="sandvich-panels-table__left">
-            <div class="sandvich-panels-table__name description">Стеновые сэндвич-панели</div>
-          </div>
-          <div class="sandvich-panels-table__right">
 
-            <div class="sandvich-panels-table__list">
+              <?php      
+            $terms = get_terms( 'panels_types', [
+              'hide_empty' => false,
+              ] );
+              
+              for ($i = 0; $i < count($terms); $i++){
+                $term_slug = $terms[$i]->slug;
+                $term_name = $terms[$i]->name;?>
+              
+              <div class="sandvich-panels-table__content">
+                <div class="sandvich-panels-table__left">
+                  <div class="sandvich-panels-table__name description"><?= $term_name; ?></div>
+                </div>
+                <div class="sandvich-panels-table__right">
+                  <div class="sandvich-panels-table__list">
 
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
+                    <?php
+                    $query_arr = [ 
+                      'post_type'      => 'panels',
+                      'taxonomy'       => 'panels_types',
+                      'posts_per_page' => -1,
+                      'panels_types'   => $term_slug
+                    ];
+                    
+                    $query_projects = new WP_Query( $query_arr );
+                    
+                    if ($query_projects->have_posts()) {
+                      
+                      while( $query_projects->have_posts() ) {
+                        $query_projects->the_post();?>
+
+                  <a class="sandvich-panels-table__item sandvich-panel" href="<?php the_permalink(); ?>">
+                    <div class="sandvich-panel__image-box">
+                      <img src="<?= CFS()->get('panel_image');?>" alt="" class="sandvich-panel__image">
                     </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
+                    <div class="sandvich-panel__info">
+                      <div class="sandvich-panel__title description"><?= the_title();?></div>
+                      <div class="sandvich-panel__list description-secondary">
+                        <div class="sandvich-panel__item">
+                          <div class="sandvich-panel__key">Тип замка:</div>
+                          <div class="sandvich-panel__value"><?= CFS()->get('panel_lock');?></div>
+                        </div>
+                        <div class="sandvich-panel__item">
+                          <div class="sandvich-panel__key">Соединение:</div>
+                          <div class="sandvich-panel__value"><?= CFS()->get('panel_joint');?></div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
+                    <div class="sandvich-panel__tags">
+                      <div class="tags">
+                        <div class="tag tag-gold"><?= CFS()->get('panel_tag1_name');?></div>
+                        <div class="tag tag-blue"><?= CFS()->get('panel_tag2_name');?></div>
+                      </div>
+                    </div>
+                  </a>
+               <?php } } 
+               wp_reset_postdata();
+               ?>
+
               </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-        
-            </div>
-
+ 
           </div>
         </div>
-        <div class="sandvich-panels-table__content">
-          <div class="sandvich-panels-table__left">
-            <div class="sandvich-panels-table__name description">Стеновые сэндвич-панели</div>
-          </div>
-          <div class="sandvich-panels-table__right">
-
-            <div class="sandvich-panels-table__list">
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp2.svg" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="sandvich-panels-table__item sandvich-panel">
-                <div class="sandvich-panel__image-box">
-                  <img src="./assets/images/sp1.png" alt="" class="sandvich-panel__image">
-                </div>
-                <div class="sandvich-panel__info">
-                  <div class="sandvich-panel__title description">Сэндвич-панели TF</div>
-                  <div class="sandvich-panel__list description-secondary">
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value">Standard</div>
-                    </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение: Прямой</div>
-                      <div class="sandvich-panel__value">Прямой</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sandvich-panel__tags">
-                  <div class="tags">
-                    <div class="tag tag-gold">Минеральная вата</div>
-                    <div class="tag tag-blue">Стеновые</div>
-                  </div>
-                </div>
-              </div>
-        
-            </div>
-
-          </div>
-        </div>
+      <?php }  ?>
       </div>
     </div>
 

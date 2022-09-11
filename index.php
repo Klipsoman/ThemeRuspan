@@ -35,7 +35,7 @@ get_header();
               Стеновые и кровельные сэндвич-панели на основе наполнителей из минеральной ваты и PIR, а также
               фасонные и доборные элементы.
             </p>
-            <a class="produce__link link-hl link-arrow-hl" href="#">Подробнее</a>
+            <a class="produce__link link-hl link-arrow-hl" href="<?php the_permalink( 295 )?>">Подробнее</a>
           </div>
         </div>
         <div class="produce__item produce__item--second">
