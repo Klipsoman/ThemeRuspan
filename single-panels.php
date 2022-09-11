@@ -223,6 +223,45 @@
           </div>
         </div>
 
+        <?php 
+          $panel_list = CFS()->get('panel_list');
+
+          if ( !empty($panel_list) ) {
+            foreach ( $panel_list as $list ) { 
+              $list_header = $list['panel_list_header'];
+              $list_block = $list['panel_list_block'];?>
+
+        <div class="tabs__item">
+          <div class="tabs__up">
+            <div class="tabs__title description-secondary"><?= $list_header; ?></div>
+            <div class="tabs__icon"></div>
+          </div>
+          <div class="tabs__down">
+            <?php 
+              if ( !empty($list_block) ) {
+                foreach ( $list_block as $block ) { 
+                  $block_title = $block['panel_list_title'];
+                  $block_text = $block['panel_list_text'];
+                  $block_image = $block['panel_list_image'];
+
+                  if (!empty($block_title)) { ?>
+                    <h4 class="description"><?= $block_title;?></h4>
+                    <?php
+                  }
+                  if (!empty($block_text)) { ?>
+                    <p class="tabs__descr description-secondary"><?= $block_text;?></p>
+                    <?php
+                  } 
+                  if (!empty($block_image)) { ?>
+                    <img src="<?= $block_image ?>" />
+                    <?php
+                  }                   
+             } }?>
+          </div>
+        </div>
+
+        <?php } } ?>
+
       </div>
     </div>
   </div>
