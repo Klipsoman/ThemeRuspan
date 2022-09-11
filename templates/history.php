@@ -19,7 +19,8 @@
     <div class="container">
       <div class="history-inner__content">
         <div class="history-inner__image-box">
-          <img src="<?= get_template_directory_uri()?>/./assets/images/history.jpg" alt="" class="history-inner__image" />
+          <img src="<?= get_template_directory_uri()?>/./assets/images/history.jpg" alt=""
+            class="history-inner__image" />
         </div>
         <div class="history-inner__descr description-secondary">
           Ruspan работает в России с 2008 г.
@@ -150,19 +151,19 @@
     <div class="container">
       <ul class="page-links__list">
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">О Ruspan</a>
+          <a href="<?php the_permalink( 22 )?>" class="bvz-links__link page-links__link link link-arrow">О Ruspan</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">Наше производство</a>
+          <a href="<?php the_permalink( 53 )?>" class="page-links__link link link-arrow">Наше производство</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">Документы и сертификаты</a>
+          <a href="<?php the_permalink( 244 )?>" class="page-links__link link link-arrow">Документы и сертификаты</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">Сотрудничество</a>
+          <a href="<?php the_permalink( 48 )?>" class="page-links__link link link-arrow">Сотрудничество</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">Карьера</a>
+          <a href="<?php the_permalink( 45 )?>" class="page-links__link link link-arrow">Карьера</a>
         </li>
       </ul>
     </div>
