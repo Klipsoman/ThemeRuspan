@@ -63,7 +63,8 @@
             </p>
           </div>
           <div class="manufacture__image-box">
-            <img src="<?= get_template_directory_uri()?>/./assets/images/manufacture1.jpg" alt="" class="manufacture__image" />
+            <img src="<?= get_template_directory_uri()?>/./assets/images/manufacture1.jpg" alt=""
+              class="manufacture__image" />
           </div>
         </div>
         <div class="manufacture__middle">
@@ -119,7 +120,8 @@
             </p>
           </div>
           <div class="manufacture__image-box">
-            <img src="<?= get_template_directory_uri()?>/./assets/images/manufacture1.jpg" alt="" class="manufacture__image" />
+            <img src="<?= get_template_directory_uri()?>/./assets/images/manufacture1.jpg" alt=""
+              class="manufacture__image" />
           </div>
         </div>
         <div class="manufacture__middle">
@@ -156,19 +158,19 @@
     <div class="container">
       <ul class="page-links__list">
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">О Ruspan</a>
+          <a href="<?php the_permalink( 22 )?>" class="bvz-links__link page-links__link link link-arrow">О Ruspan</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="page-links__link link link-arrow">Наша история</a>
+          <a href="<?php the_permalink( 42 )?>" class="page-links__link link link-arrow">Наша история</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="page-links__link link link-arrow">Документы и сертификаты</a>
+          <a href="<?php the_permalink( 244 )?>" class="page-links__link link link-arrow">Документы и сертификаты</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="page-links__link link link-arrow">Сотрудничество</a>
+          <a href="<?php the_permalink( 48 )?>" class="page-links__link link link-arrow">Сотрудничество</a>
         </li>
         <li class="page-links__item">
-          <a href="" class="page-links__link link link-arrow">Карьера</a>
+          <a href="<?php the_permalink( 45 )?>" class="page-links__link link link-arrow">Карьера</a>
         </li>
       </ul>
     </div>
