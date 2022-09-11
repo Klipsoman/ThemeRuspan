@@ -156,7 +156,7 @@ Template Name: Privacy
     <div class="container">
       <ul class="page-links__list">
         <li class="page-links__item">
-          <a href="" class="bvz-links__link page-links__link link link-arrow">Вернуться на главную</a>
+          <a href="<?= get_home_url(); ?>" class="bvz-links__link page-links__link link link-arrow">Вернуться на главную</a>
         </li>
       </ul>
     </div>
