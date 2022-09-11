@@ -40,7 +40,8 @@
             </div>
             <div class="products__right">
               <div class="products__image-box">
-                <img class="products__image" src="<?= get_template_directory_uri()?>/assets/images/steel-frame.jpg" alt="" />
+                <img class="products__image" src="<?= get_template_directory_uri()?>/assets/images/steel-frame.jpg"
+                  alt="" />
               </div>
             </div>
           </div>
@@ -66,7 +67,8 @@
             </div>
             <div class="products__right">
               <div class="products__image-box">
-                <img class="products__image" src="<?= get_template_directory_uri()?>/assets/images/run-sistem.jpg" alt="" />
+                <img class="products__image" src="<?= get_template_directory_uri()?>/assets/images/run-sistem.jpg"
+                  alt="" />
               </div>
             </div>
           </div>
@@ -89,7 +91,8 @@
             </div>
             <div class="products__right">
               <div class="products__image-box">
-                <img class="products__image" src="<?= get_template_directory_uri()?>/assets/images/galv-profile.jpg" alt="" />
+                <img class="products__image" src="<?= get_template_directory_uri()?>/assets/images/galv-profile.jpg"
+                  alt="" />
               </div>
             </div>
           </div>
@@ -105,75 +108,36 @@
       <div class="swiper" id="bvz__swiper">
         <div class="swiper-wrapper">
 
+          <?php
+           $query_arr = [ 
+            'post_type'      => 'panels',
+            'taxonomy'       => 'panels_types',
+            'posts_per_page' => 12,
+          ];
+                    
+          $query_panels = new WP_Query( $query_arr );
+                    
+            if ($query_panels->have_posts()) {
+                      
+              while( $query_panels->have_posts() ) {
+                $query_panels->the_post();?>
+
           <div class="swiper-slide">
-            <a class="swiper-slide__body" href="">
+            <a class="swiper-slide__body" href="<?php the_permalink(); ?>">
               <h3 class="description">Сэндвич-панели TF</h3>
               <ul>
-                <li>Тип замка: Standard</li>
-                <li>Соединение: Прямой</li>
+                <li>Тип замка: <?= CFS()->get('panel_lock');?></li>
+                <li>Соединение: <?= CFS()->get('panel_joint');?></li>
               </ul>
               <div class="tags">
-                <div class="tag tag-blue">PIR</div>
-                <div class="tag tag-bgc">Стеновые</div>
+                <div class="tag tag-blue"><?= CFS()->get('panel_tag1_name');?></div>
+                <div class="tag tag-bgc"><?= CFS()->get('panel_tag2_name');?></div>
               </div>
             </a>
           </div>
-
-          <div class="swiper-slide">
-            <a class="swiper-slide__body" href="">
-              <h3 class="description">Сэндвич-панели TL</h3>
-              <ul>
-                <li>Тип замка: Standard</li>
-                <li>Соединение: «Лабиринт»</li>
-              </ul>
-              <div class="tags">
-                <div class="tag tag-blue">PIR</div>
-                <div class="tag tag-bgc">Стеновые</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a class="swiper-slide__body" href="">
-              <h3 class="description">Сэндвич-панели FR</h3>
-              <ul>
-                <li>Тип замка: Standard</li>
-                <li>Соединение: «Лабиринт» и прямой</li>
-              </ul>
-              <div class="tags">
-                <div class="tag tag-gold">Минеральная вата</div>
-                <div class="tag tag-bgc">Стеновые</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a class="swiper-slide__body" href="">
-              <h3 class="description">Акустические сэндвич-панели FА</h3>
-              <ul>
-                <li>Тип замка: Standard</li>
-                <li>Соединение: «Лабиринт» и прямой</li>
-              </ul>
-              <div class="tags">
-                <div class="tag tag-gold">Минеральная вата</div>
-                <div class="tag tag-bgc">Стеновые</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="swiper-slide">
-            <a class="swiper-slide__body" href="">
-              <h3 class="description">Акустические сэндвич-панели FА</h3>
-              <ul>
-                <li>Тип замка: Standard</li>
-                <li>Соединение: «Лабиринт» и прямой</li>
-              </ul>
-              <div class="tags">
-                <div class="tag tag-gold">Минеральная вата</div>
-                <div class="tag tag-bgc">Стеновые</div>
-              </div>
-            </a>
-          </div>
+          <?php } } 
+            wp_reset_postdata();
+          ?>
 
         </div>
       </div>
