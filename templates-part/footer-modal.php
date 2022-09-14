@@ -55,7 +55,7 @@
       <div class="modal-form-thanks__descr description-secondary">Наш менеджер свяжется с вами в ближайшее время
       </div>
     </div>
-    <button class="modal-form__close">
+    <button class="modal-form-thanks__close modal-form__close">
       <span></span>
       <span></span>
     </button>
