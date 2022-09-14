@@ -12,16 +12,16 @@
             </p>
           </div>
           <div class="request__right">
-            
+
             <form class="request__form form" action="<?php ?>">
               <div class="form__item">
-                <input class="form__input" type="text" placeholder="Имя*" name="f_name"/>
+                <input class="form__input" type="text" placeholder="Имя*" name="f_name" />
               </div>
               <div class="form__item">
-                <input class="form__input" type="text" placeholder="Телефон*" name="f_tel"/>
+                <input class="form__input" type="text" placeholder="Телефон*" name="f_tel" />
               </div>
               <div class="form__item">
-                <input class="form__input" type="email" placeholder="E-mail*" name="f_mail"/>
+                <input class="form__input" type="email" placeholder="E-mail*" name="f_mail" />
               </div>
               <div class="form__item">
                 <textarea class="form__textarea" cols="30" rows="10" placeholder="Сообщение" name="f_text"></textarea>
@@ -60,20 +60,3 @@
   </body>
 
   </html>
-
-
-  
-
-<!-- <div class="form__item">
-<input class="form__input" type="text" placeholder="Имя*" />
-</div>
-<div class="form__item">
-<input class="form__input" type="text" placeholder="Телефон*" />
-</div>
-<div class="form__item">
-<input class="form__input" type="email" placeholder="E-mail*" />
-</div>
-<div class="form__item">
-<textarea class="form__textarea" cols="30" rows="10" placeholder="Сообщение"></textarea>
-</div>
-<button class="form__btn" type="submit">Оставить заявку</button> -->
