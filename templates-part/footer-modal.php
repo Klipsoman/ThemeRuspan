@@ -11,6 +11,7 @@
             </p>
           </div>
           <div class="request__right">
+
             <form class="request__form form" action="">
               <div class="form__item">
                 <input class="form__input" type="text" placeholder="Имя*" />
@@ -26,6 +27,7 @@
               </div>
               <button class="form__btn" type="submit">Оставить заявку</button>
             </form>
+
             <div class="request__policy">
               Нажимая на кнопку «Оставить заявку», вы соглашаетесь с
               <a class="request__policy-link" href="
@@ -33,10 +35,24 @@
               // получение ссылки на страницу с политикой конфиденциальности
               echo get_permalink(32); 
               ?>">
-              Политикой конфиденциальности</a>
+                Политикой конфиденциальности</a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <button class="modal-form__close">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
+
+<div class="modal-form-thanks" id="modal-form-thanks">
+  <div class="modal-form-thanks__body">
+    <div class="modal-form-thanks__content">
+      <div class="modal-form-thanks__title">Спасибо за заявку!</div>
+      <div class="modal-form-thanks__descr description-secondary">Наш менеджер свяжется с вами в ближайшее время
       </div>
     </div>
     <button class="modal-form__close">
