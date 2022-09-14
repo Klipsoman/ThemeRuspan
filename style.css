@@ -11,6 +11,10 @@
 :root {
   --swiper-theme-color: #007aff;
 }
+/* CF7 скрыть сообщение формы */
+.wpcf7-response-output {
+  display: none;
+}
 
 .swiper {
   margin-left: auto;
@@ -2246,11 +2250,15 @@ textarea {
   resize: none;
 }
 .form__btn {
+  width: auto;
   min-width: 200px;
   min-height: 65px;
   padding: 15px;
   margin-top: 20px;
+  border: none;
   background-color: #c09a5d;
+  color: #FFFFFF;
+  cursor: pointer;
 }
 .form__btn:hover {
   background-color: #b5c4d4;
@@ -2719,12 +2727,14 @@ textarea {
   padding-right: 48px;
 }
 .factory__right {
+  height: 350px;
   flex-basis: 589px;
 }
 .factory__coords {
   margin-top: 20px;
 }
 .factory__map {
+  height: 100%;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
 }
@@ -2913,6 +2923,7 @@ textarea {
   flex-shrink: 0;
 }
 .manufacture__map {
+  height: 496px;
   width: 100%;
   filter: grayscale(100%);
 }
@@ -3528,9 +3539,11 @@ textarea {
   margin-top: 46px;
 }
 .contacts-page .location__right {
+  height: 350px;
   flex-basis: 589px;
 }
 .contacts-page .location__map {
+  height: 100%;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
 }
@@ -4972,7 +4985,11 @@ textarea {
     padding-right: 44px;
   }
   .factory__right {
+    height: 280px;
     flex-basis: 472px;
+  }
+  .factory__map {
+    height: 100%;
   }
   .catalog__body {
     font-size: 16px;
@@ -5034,6 +5051,9 @@ textarea {
   }
   .manufacture__address {
     margin-right: 140px;
+  }
+  .manufacture__map {
+    height: 397px;
   }
   .abouts {
     padding-top: 100px;
@@ -5265,8 +5285,12 @@ textarea {
     margin-top: 30px;
   }
   .contacts-page .location__right {
+    height: 280px;
     flex-basis: auto;
     flex-grow: 1;
+  }
+  .contacts-page .location__map {
+    height: 100%;
   }
   .page404 {
     margin-top: 100px;
@@ -6339,8 +6363,12 @@ textarea {
     padding-right: 60px;
   }
   .factory__right {
+    height: 350px;
     margin-top: 40px;
     flex-basis: 100%;
+  }
+  .factory__map {
+    height: 100%;
   }
   .catalog__body {
     font-size: 16px;
@@ -6450,6 +6478,7 @@ textarea {
     flex-basis: 50%;
   }
   .manufacture__map {
+    height: 295px;
     flex-basis: 50%;
   }
   .manufacture__address {
@@ -6763,9 +6792,13 @@ textarea {
     margin-top: 30px;
   }
   .contacts-page .location__right {
+    height: 350px;
     flex-basis: 100%;
     flex-grow: 1;
     margin-top: 64px;
+  }
+  .contacts-page .location__map {
+    height: 100%;
   }
   .contacts-page .managers__table {
     margin-top: 30px;
@@ -8300,6 +8333,9 @@ textarea {
     flex-basis: 100%;
     height: 176px;
   }
+  .factory__right {
+    height: 100%;
+  }
   .catalog__body {
     font-size: 16px;
     line-height: 135%;
@@ -8424,6 +8460,7 @@ textarea {
     flex-basis: 100%;
   }
   .manufacture__map {
+    height: 300px;
     flex-basis: 100%;
   }
   .modal-form-thanks.modal-form-thanks__visible .modal-form-thanks__body {
@@ -8770,9 +8807,13 @@ textarea {
     margin-top: 30px;
   }
   .contacts-page .location__right {
+    height: 178px;
     flex-basis: 100%;
     flex-grow: 1;
     margin-top: 40px;
+  }
+  .contacts-page .location__right {
+    height: 100%;
   }
   .contacts-page .managers__table {
     margin-top: 30px;
