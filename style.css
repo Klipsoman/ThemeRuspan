@@ -2652,6 +2652,12 @@ textarea {
   object-fit: cover;
 }
 
+.page-template {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 80px;
+}
+
 .product-page-inner__tags {
   margin-top: 20px;
 }
@@ -7674,11 +7680,13 @@ textarea {
   }
   .form__btn {
     width: 100%;
-    min-height: 60px;
+    /* min-height: 60px; */
+    min-height: 50px;
   }
   .form__input {
-    padding-top: 10px;
-    padding-left: 13px;
+    /* padding-top: 10px;
+    padding-left: 13px; */
+    padding: 8px 10px;
   }
   .form__textarea {
     padding-top: 10px;
@@ -7813,10 +7821,10 @@ textarea {
   .header__navigation > ul > li.hasSubmenu::after {
     content: "";
     position: absolute;
-    top: 17px;
+    top: 19px;
     right: 20px;
     width: 20px;
-    height: 20px;
+    height: 12px;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNyAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xNiA5TDguNSAwLjk5OTk5OUwxIDkiIHN0cm9rZT0iIzIzMjMyMyIvPg0KPC9zdmc+DQo=");
     background-repeat: no-repeat;
     background-size: contain;
@@ -7826,7 +7834,7 @@ textarea {
     transform: rotateZ(360deg);
   }
   .header__navigation > ul > li:first-child {
-    padding-top: 30px;
+    /* padding-top: 30px; */
   }
   .header__navigation > ul > li:not(:last-child) {
     margin-right: 0;
@@ -8239,7 +8247,7 @@ textarea {
     width: 23px;
   }
   .modal-form .request {
-    padding: 30px 0;
+    padding: 20px 0;
   }
 }
 @media (min-width: 320px) and (max-width: 639px) {

@@ -11,9 +11,6 @@ get_header();
   <div class="container">
     <h1 class="news-page-inner__header news-page-header">
        <?php the_title(); ?>
-       <?php 
-        print_r(CFS()->get( '3' ));
-       ?>
     </h1>
   </div>
 </div>
@@ -34,7 +31,6 @@ get_header();
               <img class="single-news__image" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
 
               <?php }?>
-            
           </div>
         </div>
         <div class="single-news__right">
@@ -47,12 +43,6 @@ get_header();
           <p class="single-news__text description-secondary description-secondary--black">
           <?php the_content(); ?>
           </p>
-          <!-- <p class="single-news__text description-secondary description-secondary--black">
-            Международная компания Kingspan приняла решение передать свои активы в управление локальному
-            менеджменту. Хотя решение о передаче было принято в начале марта, нам потребовалось несколько недель,
-            чтобы соблюсти необходимые процедуры в интересах наших сотрудников, чьи безопасность и благополучие
-            являются основными приоритетами для компании Kingspan.
-          </p> -->
           <div class="single-news__link">
             <a href="<?php
             // ссылка на страницу новостей, id 17;

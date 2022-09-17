@@ -53,7 +53,7 @@
           </div>
           <div class="news__info">
             <div class="news__date"><?php echo get_the_date(); ?></div>
-            <div class="news__title"><?= the_title(); ?></div>
+            <div class="news__title"><?= wp_trim_words( get_the_title(), 25, '...' ); ?></div>
             <div class="news__more">
               <a class="news__link link link-border" href="<?= the_permalink(); ?>">Читать далее</a>
             </div>
@@ -83,11 +83,6 @@
               )
             );
         ?>
-            <!-- <div class="pagination__prev"></div>
-            <div class="pagination__item current">1</div>
-            <div class="pagination__item">2</div>
-            <div class="pagination__item">3</div>
-            <div class="pagination__next"></div> -->
           </div>
         </div>
       </div>
