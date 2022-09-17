@@ -161,9 +161,31 @@ get_header();
       <h2 class="slider__header page-title">Выполненные проекты</h2>
       <div class="swiper" id="steel-frames__swiper">
         <div class="swiper-wrapper">
+        <?php     
+     
+        $query_arr = [ 
+          'post_type'     => 'projects',
+          'posts_per_page'   => 12
+        ];
+
+        $query_projects = new WP_Query( $query_arr );
+          if ($query_projects->have_posts()) {
+
+          while( $query_projects->have_posts() ) {
+            $query_projects->the_post();
+            $id = get_the_ID();
+        ?>
+           
           <div class="swiper-slide">
             <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
+              <?php 
+                if (has_post_thumbnail()) {
+                  the_post_thumbnail();
+                } else {
+                  ?>
+              <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png"
+                alt="" />
+              <?php } ?>
             </div>
             <div class="swiper-slide__info projects__info">
               <div class="swiper-slide__item">
@@ -179,131 +201,10 @@ get_header();
             </div>
           </div>
 
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php } } 
+          wp_reset_postdata();
+          ?>
 
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="swiper__image-block">
-              <img class="slider-img" src="<?= get_template_directory_uri()?>/assets/images/project1.png" alt="" />
-            </div>
-            <div class="swiper-slide__info projects__info">
-              <div class="swiper-slide__item">
-                Клиент
-                <div class="swiper-slide__title">Х5 Group</div>
-              </div>
-              <div class="swiper-slide__item">
-                Проект
-                <div class="swiper-slide__title">
-                  Распределительный центр «Пятерочка»
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="projects__keys">
@@ -320,7 +221,7 @@ get_header();
           </div>
         </div>
         <div class="projects__more">
-          <a href="" class="link link-arrow">Все проекты</a>
+          <a href="<?php the_permalink(266)?>" class="link link-arrow">Все проекты</a>
         </div>
       </div>
     </div>
