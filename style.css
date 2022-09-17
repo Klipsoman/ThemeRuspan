@@ -7663,6 +7663,9 @@ textarea {
     -ms-grid-row: 2;
     -ms-grid-column: 2;
   }
+  .privacy-page .privacy__block {
+    padding-right: 100px;
+  }
 }
 @media (min-width: 320px) and (max-width: 639px) {
   .link-fz-standart {
@@ -8266,6 +8269,9 @@ textarea {
   .main-footer__rights {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
+  }
+  .privacy-page .privacy__block {
+    padding-right: 0px;
   }
 }
 @media (min-width: 320px) and (max-width: 639px) {
