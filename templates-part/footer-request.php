@@ -12,26 +12,10 @@
             </p>
           </div>
           <div class="request__right">
-
-            <form class="request__form form" action="<?php ?>">
-              <div class="form__item">
-                <input class="form__input" type="text" placeholder="Имя*" name="f_name" />
-              </div>
-              <div class="form__item">
-                <input class="form__input" type="text" placeholder="Телефон*" name="f_tel" />
-              </div>
-              <div class="form__item">
-                <input class="form__input" type="email" placeholder="E-mail*" name="f_mail" />
-              </div>
-              <div class="form__item">
-                <textarea class="form__textarea" cols="30" rows="10" placeholder="Сообщение" name="f_text"></textarea>
-              </div>
-              <button class="form__btn" type="submit">Оставить заявку</button>
-            </form>
-
+            <?php echo do_shortcode('[contact-form-7 id="335" title="Контактная форма (Главная модальное окно, главная футер, страницы сайта)"]');?>
             <div class="request__policy">
               Нажимая на кнопку «Оставить заявку», вы соглашаетесь с
-              <a class="request__policy-link" href="">Политикой конфиденциальности</a>
+              <a class="request__policy-link" href="<?php the_permalink(32) ?>">Политикой конфиденциальности</a>
             </div>
           </div>
         </div>

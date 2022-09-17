@@ -104,7 +104,7 @@
           </form>
           <div class="subscribe__privacy">
             Нажимая на кнопку «Подписаться», вы соглашаетесь с
-            <a href="" class="subscribe__privacy-link">Политикой конфиденциальности</a>
+            <a href="<?php the_permalink(32) ?>" class="subscribe__privacy-link">Политикой конфиденциальности</a>
           </div>
         </div>
       </div>
