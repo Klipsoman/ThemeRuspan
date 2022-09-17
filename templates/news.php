@@ -98,10 +98,11 @@
           <div class="subscribe__title description">Подписаться на новости Ruspan</div>
         </div>
         <div class="subscribe__right">
-          <form class="subscribe__form">
+        <?php echo do_shortcode('[contact-form-7 id="341" title="Подписка"]'); ?>
+        <!--           <form class="subscribe__form">
             <input class="subscribe__input" type="text" name="" id="" placeholder="E-mail" />
             <button class="subscribe__btn" type="submit">Подписаться</button>
-          </form>
+          </form> -->
           <div class="subscribe__privacy">
             Нажимая на кнопку «Подписаться», вы соглашаетесь с
             <a href="<?php the_permalink(32) ?>" class="subscribe__privacy-link">Политикой конфиденциальности</a>

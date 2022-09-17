@@ -29,6 +29,9 @@
 .wpcf7-spinner {
   display: none !important;
 }
+.wpcf7-form-control-wrap.mailpoetsignup-986 {
+  display: none !important;
+}
 
 .swiper {
   margin-left: auto;
@@ -2679,8 +2682,14 @@ textarea {
 .subscribe__btn {
   min-width: 160px;
   padding: 12px 30px;
+  border: none;
   background-color: #7f8f9f;
   color: #ffffff;
+  cursor: pointer;
+}
+.subscribe__btn:hover {
+  background-color: #b5c4d4;
+  color: #000000;
 }
 .subscribe__input {
   margin-right: 20px;

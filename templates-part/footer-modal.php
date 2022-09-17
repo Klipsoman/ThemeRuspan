@@ -45,3 +45,29 @@
     </button>
   </div>
 </div>
+
+<div class="modal-form-thanks" id="modal-form-thanks">
+  <div class="modal-form-thanks__body">
+    <div class="modal-form-thanks__content">
+      <div class="modal-form-thanks__title">Спасибо за заявку!</div>
+      <div class="modal-form-thanks__descr description-secondary">Наш менеджер свяжется с вами в ближайшее время
+      </div>
+    </div>
+    <button class="modal-form-thanks__close modal-form__close">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
+
+<div class="modal-form-thanks" id="modal-form-thanks-subscribe">
+  <div class="modal-form-thanks__body">
+    <div class="modal-form-thanks__content">
+      <div class="modal-form-thanks__title">Спасибо за подписку</div>
+    </div>
+    <button class="modal-form-thanks__close modal-form__close">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
