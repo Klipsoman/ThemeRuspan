@@ -19,6 +19,16 @@
   add_action( 'wp_enqueue_scripts', 'ruspan_wpassist_remove_block_library_css' ); // gutenberg remove
   add_action( 'init', 'ruspan_custom_wp_remove_global_css' ); // remove global inline styles
 
+  add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
+
+  function remove_jquery_migrate( $scripts ) {
+    if ( empty( $scripts->registered['jquery'] ) || is_admin() ) {
+      return;
+    }
+    $deps = & $scripts->registered['jquery']->deps;
+    $deps = array_diff( $deps, [ 'jquery-migrate' ] );
+  }
+
   function ruspan_custom_wp_remove_global_css() {
     remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
     remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
@@ -44,6 +54,8 @@
   }
  
   function ruspan_add_styles_and_sctipts() {
+    wp_deregister_script('jquery');
+
     wp_enqueue_style( 'style', get_stylesheet_uri() );
     wp_enqueue_script( 'index', get_template_directory_uri() .'/assets/js/index.js', [], null, true );
     wp_enqueue_script( 'custom', get_template_directory_uri() .'/assets/js/custom.js', [], null, false );
