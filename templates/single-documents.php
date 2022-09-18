@@ -1,5 +1,5 @@
 <?php 
-get_header();
+  get_header();
 ?>
 <div style='margin: 100px 0;'>
   <div class="container">
