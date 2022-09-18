@@ -1899,7 +1899,9 @@ textarea {
   color: #ffffff;
 }
 .produce__link::after {
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik05IDFMMTMgNUw5IDkiIHN0cm9rZT0id2hpdGUiLz4NCjxwYXRoIGQ9Ik0xMyA1SDAiIHN0cm9rZT0id2hpdGUiLz4NCjwvc3ZnPg0K);
+  top: 5px;
+  height: 10px;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxNCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik05IDFMMTMgNUw5IDkiIHN0cm9rZT0id2hpdGUiLz4NCjxwYXRoIGQ9Ik0xMyA1SDAiIHN0cm9rZT0id2hpdGUiLz4NCjwvc3ZnPg0K');
 }
 
 .benefits {
