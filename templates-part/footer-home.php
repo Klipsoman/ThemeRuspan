@@ -1,6 +1,6 @@
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="request">
+    <section class="request">
       <div class="container">
         <div class="request__content">
           <div class="request__left">
@@ -34,11 +34,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Contacts -->
 
-    <div class="contacts">
+    <section class="contacts">
       <div class="container">
         <div class="contacts__content">
           <div class="contacts__left">
@@ -81,11 +81,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- News -->
 
-    <div class="news">
+    <section class="news">
       <div class="container">
         <h2 class="news__header section-header">Новости Ruspan</h2>
 
@@ -112,7 +112,7 @@
             setup_postdata( $post );      
           ?>
 
-          <div class="news__item">
+          <article class="news__item">
             <div class="news__image-block">
               <?php 
                 if (has_post_thumbnail()) {
@@ -126,13 +126,13 @@
             <div class="news__info">
               <div class="news__date"><?php echo get_the_date(); ?></div>
               <div class="news__title">
-                <?= the_title(); ?>
+                <?= wp_trim_words( get_the_title(), 25, '...' );?>
               </div>
               <div class="news__more">
                 <a class="news__link link link-border" href="<?= the_permalink()?>">Читать далее</a>
               </div>
             </div>
-          </div>
+          </article>
 
          <?php 
         } 
@@ -144,9 +144,9 @@
           <a class="link link-arrow" href="<?= get_permalink(17); ?>">Все новости</a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="main-footer">
+    <section class="main-footer">
       <div class="container">
         <div class="main-footer__content">
           <div class="main-footer__top footer-menu">
@@ -159,7 +159,7 @@
 
         </div>
       </div>
-    </div>
+    </section>
   </footer>
 
   <?php get_template_part('templates-part/footer', 'modal' )?>
