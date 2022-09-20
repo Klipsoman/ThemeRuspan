@@ -15,7 +15,7 @@
             <?php echo do_shortcode('[contact-form-7 id="335" title="Контактная форма (Главная модальное окно, главная футер, страницы сайта)"]');?>
             <div class="request__policy">
               Нажимая на кнопку «Оставить заявку», вы соглашаетесь с
-              <a class="request__policy-link" href="">Политикой конфиденциальности</a>
+              <a class="request__policy-link" href="<?php the_permalink(32) ?>">Политикой конфиденциальности</a>
             </div>
           </div>
         </div>
