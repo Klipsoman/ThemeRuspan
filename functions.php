@@ -2,9 +2,9 @@
   add_filter( 'show_admin_bar', '__return_false' );
 
   // start remove wp styles and scripts
-  remove_action('wp_head',             'print_emoji_detection_script', 7 );
+  // remove_action('wp_head',             'print_emoji_detection_script', 7 );
   remove_action('admin_print_scripts', 'print_emoji_detection_script' );
-  remove_action('wp_print_styles',     'print_emoji_styles' );
+  // remove_action('wp_print_styles',     'print_emoji_styles' );
   remove_action('admin_print_styles',  'print_emoji_styles' );
 
   remove_action('wp_head', 'wp_resource_hints', 2 ); //remove dns-prefetch
@@ -16,10 +16,10 @@
   remove_action('wp_head', 'wp_shortlink_wp_head', 10); //remove shortlink
   remove_action('wp_head', 'wp_oembed_add_discovery_links'); //remove alternate
 
-  add_action( 'wp_enqueue_scripts', 'ruspan_wpassist_remove_block_library_css' ); // gutenberg remove
-  add_action( 'init', 'ruspan_custom_wp_remove_global_css' ); // remove global inline styles
+  // add_action( 'wp_enqueue_scripts', 'ruspan_wpassist_remove_block_library_css' ); // gutenberg remove
+  // add_action( 'init', 'ruspan_custom_wp_remove_global_css' ); // remove global inline styles
 
-  add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
+  // add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
 
   function remove_jquery_migrate( $scripts ) {
     if ( empty( $scripts->registered['jquery'] ) || is_admin() ) {
