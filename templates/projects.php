@@ -239,7 +239,7 @@ $filterreset = strtok($filterreset, '?'); ?>
         <div class="container">
           <div class="catalog__body">
             <div class="catalog__link-box">
-              <a href="<?= CFS()->get('projects_doc_upload') ?>" class="catalog__link" download>Скачать
+              <a href="<?= CFS()->get('projects_doc_upload') ?>" class="catalog__link">
                 <?= CFS()->get('projects_doc_name') ?></a>
             </div>
             <div class="catalog__download-box">
