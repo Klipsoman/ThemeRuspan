@@ -382,7 +382,7 @@ get_header();
 
   <!-- REVIEWS -->
 
-  <section class="reviews">
+  <!-- <section class="reviews">
     <div class="container">
       <h2 class="reviews__header section-header">Отзывы</h2>
       <div class="reviews__content">
@@ -423,11 +423,11 @@ get_header();
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- CLIENTS -->
 
-  <section class="clients">
+  <!-- <section class="clients">
     <div class="container">
       <h2 class="clients__header section-header">Наши клиенты</h2>
       <div class="clients__list">
@@ -451,6 +451,6 @@ get_header();
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </main>
 <?php  get_footer();?>
