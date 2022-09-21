@@ -84,10 +84,10 @@
             <div class="more-about__title description">Продукция</div>
             <p class="more-about__descr description-secondary">
               На предприятиях компании производятся стеновые и кровельные
-              <span class="text-blue">сэндвич-панели </span> с сердечником
-              из минеральной ваты и пенополиизоцианурата (PIR),
-              <span class="text-blue">фасонные и доборные элементы, быстровозводимые здания,
-                прогонные системы</span>
+              <a class="text-blue" href="<?php the_permalink( 295 )?>">сэндвич-панели </a> с сердечником
+              из минеральной ваты и пенополиизоцианурата (PIR), <span class="text-blue">фасонные и доборные элементы</span>,
+              <a class="text-blue" href="<?php the_permalink( 26 )?>"> быстровозводимые здания,
+                прогонные системы</a>
               и <span class="text-blue">оцинкованные профили.</span>
             </p>
           </div>
