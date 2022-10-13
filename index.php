@@ -57,6 +57,9 @@ get_header();
               <h3 class="produce__title">Проектирование и техническая поддержка на всех этапах строительства</h3>
               <a class="produce__link link-hy link-arrow-hy" href="<?php the_permalink( 58 )?>">Подробнее</a>
             </div>
+            <div class="produce__image-block">
+              <img class="produce__image" src="<?= get_template_directory_uri()?>/assets/images/illustration.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
