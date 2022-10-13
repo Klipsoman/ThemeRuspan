@@ -278,25 +278,27 @@ get_header();
           ?>
 
             <div class="swiper-slide">
-              <div class="swiper__image-block">
-                <?php 
-                if (has_post_thumbnail()) {
-                  the_post_thumbnail();
-                } else {
-                  ?>
-                <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
-                <?php } ?>
-              </div>
-              <div class="projects__info swiper-slide__info">
-                <div class="swiper-slide__item">
-                  Клиент
-                  <div class="swiper-slide__title"><?= CFS()->get('project_client'); ?></div>
+              <a href="<?php the_permalink(); ?>">
+                <div class="swiper__image-block">
+                  <?php 
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail();
+                  } else {
+                    ?>
+                  <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
+                  <?php } ?>
                 </div>
-                <div class="swiper-slide__item">
-                  Проект
-                  <div class="swiper-slide__title"><?php the_title();?></div>
+                <div class="projects__info swiper-slide__info">
+                  <div class="swiper-slide__item">
+                    Клиент
+                    <div class="swiper-slide__title"><?= CFS()->get('project_client'); ?></div>
+                  </div>
+                  <div class="swiper-slide__item">
+                    Проект
+                    <div class="swiper-slide__title"><?php the_title();?></div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <?php } } 
