@@ -3239,6 +3239,14 @@ textarea {
   color: #ffffff;
 }
 
+.telephone__desktop {
+  display: initial;
+}
+
+.telephone__mobile {
+  display: none;
+}
+
 .abouts {
   padding-top: 150px;
   padding-bottom: 200px;
@@ -5098,6 +5106,12 @@ textarea {
   .manufacture__map {
     height: 397px;
   }
+  .telephone__desktop {
+    display: initial;
+  }
+  .telephone__mobile {
+    display: none;
+  }
   .abouts {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -6545,6 +6559,12 @@ textarea {
     color: #ffffff;
     font-size: 30px;
     margin-bottom: 40px;
+  }
+  .telephone__desktop {
+    display: none;
+  }
+  .telephone__mobile {
+    display: initial;
   }
   .abouts {
     padding-top: 60px;
@@ -8542,6 +8562,12 @@ textarea {
     color: #ffffff;
     font-size: 30px;
     margin-bottom: 40px;
+  }
+  .telephone__desktop {
+    display: none;
+  }
+  .telephone__mobile {
+    display: initial;
   }
   .abouts {
     padding-top: 30px;

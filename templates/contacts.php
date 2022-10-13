@@ -23,10 +23,12 @@
           </div>
           <div class="location__center">
             <div class="location__tel-box">
-              <a class="location__tel description" href="">+7 800 250-07-65</a>
+              <a class="location__tel telephone__desktop description">+7 800 250-07-65</a>
+              <a class="location__tel telephone__mobile description" href="tel:+78002500765">+7 800 250-07-65</a>
             </div>
             <div class="location__tel-box">
-              <a class="location__tel description" href="">+7 812 602-29-40</a>
+              <a class="location__tel telephone__desktop description">+7 812 602-29-40</a>
+              <a class="location__tel telephone__mobile description" href="tel:+78126022940">+7 812 602-29-40</a>
             </div>
             <div class="location__mail-box">
               <a class="location__mail description" href="mailto:info@ruspan.su">info@ruspan.su</a>
@@ -35,7 +37,7 @@
               196158, Россия, Санкт-Петербург, Пулковское шоссе, дом 28, литера А, офис 1403
             </address>
             <div class="location__social-box">
-              <a class="location__social link-bg-blue link-bg-blue--arrow link-fz-standart" href="">Вконтакте</a>
+              <a class="location__social link-bg-blue link-bg-blue--arrow link-fz-standart" href="https://vk.com/ruspan_russia">Вконтакте</a>
             </div>
           </div>
           <div class="location__right">
