@@ -32,8 +32,14 @@
               <h2 class="contacts__header section-header">Контакты</h2>
             </div>
             <div class="contacts__telmail">
-              <div class="contacts__tel">+7 800 250-07-65</div>
-              <div class="contacts__tel">+7 800 250-07-65</div>
+              <div class="contacts__tel">
+                <a class="telephone__desktop description">+7 800 250-07-65</a>
+                <a class="telephone__mobile description" href="tel:+78002500765">+7 800 250-07-65</a>
+              </div>
+              <div class="contacts__tel">
+                <a class="telephone__desktop description">+7 812 602-29-40</a>
+                <a class="telephone__mobile description" href="tel:+78126022940">+7 812 602-29-40</a>
+              </div>  
               <div class="contacts__mail"><a class="link" href="mailto:info@ruspan.su">info@ruspan.su</a></div>
             </div>
           </div>
