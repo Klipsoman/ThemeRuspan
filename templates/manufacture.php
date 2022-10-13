@@ -38,7 +38,9 @@
             </p>
           </div>
           <div class="manufacture-inner__right">
-            <div class="manufacture-inner__circle"></div>
+              <div class="manufacture-inner__image-box">
+                <img src="<?= get_template_directory_uri()?>/assets/images/proizvodstvo.svg" alt="" class="manufacture-inner__image">
+              </div>
           </div>
         </div>
       </div>
@@ -63,7 +65,7 @@
               </p>
             </div>
             <div class="manufacture__image-box">
-              <img src="<?= get_template_directory_uri()?>/./assets/images/manufacture1.jpg" alt=""
+              <img src="<?= get_template_directory_uri()?>/assets/images/manufacture1.jpg" alt=""
                 class="manufacture__image" />
             </div>
           </div>
