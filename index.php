@@ -9,9 +9,7 @@ get_header();
     <div class="container container-relative container-h100">
       <div class="inner__tape">
         <h1 class="inner__header">
-          Производство <br />
-          сэндвич-панелей <br />и быстровозводимых <br />
-          зданий
+          <?= CFS()->get('homepage_main-header') ?>
         </h1>
         <button class="btn inner__btn">Оставить заявку</button>
       </div>
@@ -32,8 +30,7 @@ get_header();
             <div class="produce__about-block">
               <h3 class="produce__title">Сэндвич-панели</h3>
               <p class="produce__descr">
-                Стеновые и кровельные сэндвич-панели на основе наполнителей из минеральной ваты и PIR, а также
-                фасонные и доборные элементы.
+              <?= CFS()->get('homepage_sandvich-text') ?>
               </p>
               <a class="produce__link link-hl link-arrow-hl" href="<?php the_permalink( 295 )?>">Подробнее</a>
             </div>
@@ -45,9 +42,7 @@ get_header();
             <div class="produce__about-block">
               <h3 class="produce__title">Быстровозводимые здания и прогонные системы</h3>
               <p class="produce__descr">
-                Оптимальное решение для строительства административных, коммерческих, сельскохозяйственных,
-                складских и промышленных объектов. Сочетают в себе баланс конструктивных решений, стоимости и
-                скорости монтажа.
+              <?= CFS()->get('homepage_bvz-text') ?>
               </p>
               <a class="produce__link link-hl link-arrow-hl" href="<?php the_permalink( 26 )?>">Подробнее </a>
             </div>
@@ -337,10 +332,7 @@ get_header();
         <div class="about__left">
           <h2 class="about__header section-header">О компании</h2>
           <p class="about__descr">
-            Компания Ruspan (ранее — Kingspan) является ведущим производителем сэндвич-панелей и каркасов для
-            быстро­возводимых зданий, а также оказывает проектную под­держку для нежилого строительства на всех
-            стадиях — от проектирования до сдачи в эксплуатацию. Мы создаем высокоэффективные здания как готовые
-            ре­шения для наших клиентов. Продукция компании представ­лена в России и странах СНГ.
+          <?= CFS()->get('homepage_about-text') ?>
           </p>
           <ul class="about__stats">
             <li>
