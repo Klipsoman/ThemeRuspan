@@ -19,33 +19,26 @@
       <div class="container">
         <div class="sandvich-panels-inner__content sandvich-panels-inner__column">
           <div class="sandvich-panels-inner__left">
-            <p class="sandvich-panels-inner__descr description-secondary">Ruspan изготавливает теплоизоляционные
-              сэндвич-панели на основе сердечника из минеральной ваты и PIR</p>
+            <p class="sandvich-panels-inner__descr description-secondary"><?= CFS()->get('panels_subheader') ?></p>
           </div>
           <div class="sandvich-panels-inner__middle sandvich-panels-inner__column">
             <div class="sandvich-panels-inner__info">
-              <p class="sandvich-panels-inner__title description">Отличные теплоизоляционные свойства</p>
-              <p class="sandvich-panels-inner__property description-secondary">Коэффициент теплопроводности материала
-                PIR
-                — λ=0,021 Вт/(м•К).</p>
+              <p class="sandvich-panels-inner__title description"><?= CFS()->get('panels_prop1') ?></p>
+              <p class="sandvich-panels-inner__property description-secondary"><?= CFS()->get('panels_prop1-text') ?></p>
             </div>
             <div class="sandvich-panels-inner__info">
-              <p class="sandvich-panels-inner__title description">Высокая огнестойкость</p>
-              <p class="sandvich-panels-inner__property description-secondary">Вся продукция Ruspan имеет высокие
-                свойства
-                пожарной безопасности, подтвержденные необходимыми сертификатами.</p>
+              <p class="sandvich-panels-inner__title description"><?= CFS()->get('panels_prop2') ?></p>
+              <p class="sandvich-panels-inner__property description-secondary"><?= CFS()->get('panels_prop2-text') ?></p>
             </div>
           </div>
           <div class="sandvich-panels-inner__right sandvich-panels-inner__column">
             <div class="sandvich-panels-inner__info">
-              <p class="sandvich-panels-inner__title description">Прочность и долговечность</p>
-              <p class="sandvich-panels-inner__property description-secondary">Для внутренней и наружной частей
-                используется оцинкованный металл толщиной 0,5–0,7 мм с полимерным покрытием.</p>
+              <p class="sandvich-panels-inner__title description"><?= CFS()->get('panels_prop3') ?></p>
+              <p class="sandvich-panels-inner__property description-secondary"><?= CFS()->get('panels_prop3-text') ?></p>
             </div>
             <div class="sandvich-panels-inner__info">
-              <p class="sandvich-panels-inner__title description">Качество</p>
-              <p class="sandvich-panels-inner__property description-secondary">Материалы от лидеров отрасли. Гарантия на
-                металл до 25 лет.</p>
+              <p class="sandvich-panels-inner__title description"><?= CFS()->get('panels_prop4') ?></p>
+              <p class="sandvich-panels-inner__property description-secondary"><?= CFS()->get('panels_prop4-text') ?></p>
             </div>
           </div>
         </div>
