@@ -20,21 +20,18 @@
         <div class="manufacture-inner__content">
           <div class="manufacture-inner__top">
             <p class="manufacture-inner__descr description">
-              Заводы Ruspan производят элементы силовых каркасов, ограждающие конструкции (сэндвич-панели на основе
-              минеральной ваты и пенополиизоцианурата), доборные и фасонные элементы ограждающих конструкций.
+              <?= CFS()->get('manufacture_text1') ?>
             </p>
           </div>
           <div class="manufacture-inner__left">
             <p class="manufacture-inner__descr description">
-              Заводы Ruspan производят элементы силовых каркасов, ограждающие конструкции (сэндвич-панели на основе
-              минеральной ваты и пенополиизоцианурата), доборные и фасонные элементы ограждающих конструкций.
+             <?= CFS()->get('manufacture_text1') ?>
             </p>
             <p class="manufacture-inner__descr description-secondary">
-              Заводы Ruspan располагаются в г. Гатчине Ленинградской области и г. Невинномысске
-              Ставропольского&nbsp;края.
+             <?= CFS()->get('manufacture_text2') ?>
             </p>
             <p class="manufacture-inner__descr description-secondary">
-              Продукция Ruspan поставляется по всем регионам России и странам СНГ.
+             <?= CFS()->get('manufacture_text3') ?>
             </p>
           </div>
           <div class="manufacture-inner__right">
@@ -54,14 +51,12 @@
             <div class="manufacture__title-box">
               <h3 class="manufacture__header page-title">Завод в Гатчине</h3>
               <p class="manufacture__descr description-secondary">
-                Завод Ruspan в Ленинградской области производит элементы силовых каркасов, ограждающие конструкции
-                (сэндвич-панели на основе минеральной ваты), доборные и фасонные элементы ограждающих конструкций.
+                <?= CFS()->get('manufacture_gatchina-text') ?>
               </p>
             </div>
             <div class="manufacture__descr-box">
               <p class="manufacture__descr description-secondary">
-                Завод Ruspan в Ленинградской области производит элементы силовых каркасов, ограждающие конструкции
-                (сэндвич-панели на основе минеральной ваты), доборные и фасонные элементы ограждающих конструкций.
+              <?= CFS()->get('manufacture_gatchina-text') ?>
               </p>
             </div>
             <div class="manufacture__image-box">
@@ -73,14 +68,14 @@
             <div class="manufacture__values">
               <div class="manufacture__lists">
                 <ul class="manufacture__list">
-                  <li class="manufacture__li page-title">20 000 т/год</li>
+                  <li class="manufacture__li page-title"><?= CFS()->get('manufacture_gatchina_value1') ?></li>
                   <li class="manufacture__li description-secondary">
-                    холодногнутого оцинкованного профиля: Σ-, С-, U-, Z-образного
+                    <?= CFS()->get('manufacture_gatchina_value1-text') ?>
                   </li>
                 </ul>
                 <ul class="manufacture__list">
-                  <li class="manufacture__li page-title">1 000 000 м2/год</li>
-                  <li class="manufacture__li description-secondary">сэндвич-панелей</li>
+                  <li class="manufacture__li page-title"><?= CFS()->get('manufacture_gatchina_value2') ?></li>
+                  <li class="manufacture__li description-secondary"><?= CFS()->get('manufacture_gatchina_value2-text') ?></li>
                 </ul>
                 <div class="manufacture__round"></div>
               </div>
@@ -109,16 +104,12 @@
             <div class="manufacture__title-box">
               <h3 class="manufacture__header page-title">Завод в <br>Невинномысске</h3>
               <p class="manufacture__descr description-secondary">
-                В 2021 году компания Ruspan запустила локальное производство PIR панелей на юге России в
-                Ставропольском крае. В 2022-2023 г. планируется модернизация производства и установка дополнительной
-                линии производства сэндвич-панелей.
+                <?= CFS()->get('manufacture_nevinnomisk-text') ?>
               </p>
             </div>
             <div class="manufacture__descr-box">
               <p class="manufacture__descr description-secondary">
-                В 2021 году компания Ruspan запустила локальное производство PIR панелей на юге России в
-                Ставропольском крае. В 2022-2023 г. планируется модернизация производства и установка дополнительной
-                линии производства сэндвич-панелей.
+                <?= CFS()->get('manufacture_nevinnomisk-text') ?>
               </p>
             </div>
             <div class="manufacture__image-box">
@@ -130,8 +121,8 @@
             <div class="manufacture__values">
               <div class="manufacture__lists">
                 <ul class="manufacture__list">
-                  <li class="manufacture__li page-title">1 000 000 м2/год</li>
-                  <li class="manufacture__li description-secondary">сэндвич-панелей PIR</li>
+                  <li class="manufacture__li page-title"><?= CFS()->get('manufacture_nevinnomisk_value') ?></li>
+                  <li class="manufacture__li description-secondary"><?= CFS()->get('manufacture_nevinnomisk_value-text') ?></li>
                 </ul>
                 <div class="manufacture__round"></div>
               </div>
