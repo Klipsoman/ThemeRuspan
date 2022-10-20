@@ -20,18 +20,12 @@
         <div class="collaboration__content">
           <div class="collaboration__left">
             <p class="collaboration__descr description">
-              Приглашаем к сотрудничеству проектные институты, проектные
-              организации и специалистов-проектировщиков с целью наладить
-              долгосрочные и взаимовыгодные отношения.
+              <?= CFS()->get('collaboration_blue_left-text') ?>
             </p>
           </div>
           <div class="collaboration__right">
             <p class="collaboration__descr description-secondary">
-              Разработка проектной документации КР, рабочих чертежей КМД
-              с сортаментом из оцинкованных холодногнутых профилей
-              и чернометаллических конструкций, проектирование ограждающих
-              конструкций (сэндвич-панелей, профилированных листов,
-              светопрозрачных конструкций).
+              <?= CFS()->get('collaboration_blue_right-text') ?>
             </p>
           </div>
         </div>
@@ -44,15 +38,10 @@
         <div class="information__content">
           <div class="information__left">
             <p class="information__descr description-secondary">
-              Наши специалисты предоставляют все необходимые исходные данные
-              для работы в AutoCAD, SolidWorks, Tekla, SCAD, а также расчетные
-              характеристики подбора сечений.
+              <?= CFS()->get('collaboration_img_text-up') ?>
             </p>
             <p class="information__descr description-secondary">
-              Проводим оптимизацию проектов (уменьшение веса и стоимости
-              строительства) за счет использования оцинкованного профиля,
-              а также за счет других проектных решений Ruspan. Защита
-              и сопровождение проекта в органах экспертизы.
+              <?= CFS()->get('collaboration_img_text-down') ?>
             </p>
           </div>
           <div class="information__right">
@@ -71,34 +60,18 @@
         <div class="info-lists__content">
           <div class="info-lists__left">
             <h3 class="info-lists__title description">
-              Мы предоставляем проектным институтам, проектным организациям и
-              специалистам-проектировщикам:
+             <?= CFS()->get('collaboration_list-left-header') ?>
             </h3>
             <ul class="info-lists__list">
-              <li class="info-lists__item">
-                Предоставление полной технической информации по строительным
-                конструкциям производства Ruspan
-              </li>
-              <li class="info-lists__item">
-                Помощь в проектировании (проведении расчетов) и применении
-                типовых узлов (готовые чертежи узлов и спецификации)
-              </li>
-              <li class="info-lists__item">
-                Консультирование по возможностям применения конструкций
-                Кингспан
-              </li>
-              <li class="info-lists__item">
-                BIM-модели металлических каркасов зданий Кингспан для
-                совместной&nbsp;работы над проектом
-              </li>
-              <li class="info-lists__item">
-                Сотрудничество по реализации проекта
-              </li>
-              <li class="info-lists__item">
-                Проведение обучающих семинаров (Вы всегда можете заказать
-                семинар, посещение Вашей организации для проведения
-                презентации продукции и программного обеспечения)
-              </li>
+              <?php 
+                $left_list = CFS()->get('collaboration_list-left-loop');
+         
+                for($i = 0; $i < count($left_list); $i++){
+              ?>
+
+              <li class="info-lists__item"><?= $left_list[$i]["collaboration_list-left-loop-li"]; ?></li>    
+
+              <?php } ?>
             </ul>
           </div>
           <div class="info-lists__right">
@@ -106,31 +79,15 @@
               Сотрудничество с нами позволяет:
             </h3>
             <ul class="info-lists__list">
-              <li class="info-lists__item">
-                Сократить расходы на проектирование (мы разрабатываем
-                и предлагаем вам готовые узлы, для применения в ваших
-                проектах)
-              </li>
-              <li class="info-lists__item">
-                Оперативно решать возникающие при проектировании вопросы
-              </li>
-              <li class="info-lists__item">
-                Получить проектные решения, основанные на имеющемся
-                многолетнем опыте проектирования инженерных систем различных
-                производств
-              </li>
-              <li class="info-lists__item">
-                Создавать условия для комплексного решения задач
-                на современном уровне новых производств, а также повышения
-                технического уровня существующего производства
-              </li>
-              <li class="info-lists__item">
-                Обеспечивать системные решения технических проблем
-                с инженерными системами
-              </li>
-              <li class="info-lists__item">
-                Обеспечивать создание современных востребованных решений
-              </li>
+              <?php 
+                $left_list = CFS()->get('collaboration_list-right-loop');
+         
+                for($i = 0; $i < count($left_list); $i++){
+              ?>
+
+              <li class="info-lists__item"><?= $left_list[$i]["collaboration_list-right-loop-li"]; ?></li>    
+                        
+              <?php } ?>
             </ul>
           </div>
         </div>
@@ -142,21 +99,16 @@
       <div class="container">
         <div class="descriptions__content">
           <div class="descriptions__left">
-            <p class="descriptions__descr description">
-              Мы строим сотрудничество с нашими партнерами на принципах
-              взаимной выгоды, строгой конфиденциальности условий
-              сотрудничества, индивидуального подхода и уважения к каждому.
+            <p class="descriptions__descr description">	
+              <?= CFS()->get('collaboration_under_left_list_text') ?>
             </p>
           </div>
           <div class="descriptions__right">
             <p class="descriptions__descr description-secondary">
-              Мы стараемся сделать все, чтобы Вам, уважаемые коллеги
-              проектировщики, было максимально просто и удобно работать с нами
-              и нашей продукцией.
+             <?= CFS()->get('collaboration_under_right_list_text-up') ?>
             </p>
             <p class="descriptions__descr description-secondary">
-              За годы работы нашей компании мы наладили прочные партнерские
-              отношения со многими проектными институтами и организациями.
+             <?= CFS()->get('collaboration_under_right_list_text-down') ?>
             </p>
           </div>
         </div>
