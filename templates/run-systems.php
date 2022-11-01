@@ -25,10 +25,7 @@ get_header();
         </div>
         <div class="page-photo-description__right">
           <p class="description">
-            Прогонные системы «Кингспан» разработаны в полном соответствии с современными строительными требованиями.
-            Все проекты прогонных систем имеют четкую экономическую обоснованность, что позволяют снизить общую
-            стоимость кровельных систем, а также ускорить их монтаж. Прогоны Кингспан могут применяться во всех типах
-            зданий с шагом основных рам до 12 метров.
+            <?= CFS()->get('runsystem_main-text') ?>
           </p>
         </div>
       </div>
@@ -48,32 +45,22 @@ get_header();
               <img src="<?= get_template_directory_uri()?>/assets/images/run-sistem-area.jpg" alt="area"
                 class="area__image" />
             </div>
-            <div class="area__list-header description">Прогонные системы «Кингспан»&nbsp;могут
-              <br />применяться:
+            <div class="area__list-header description"><?= CFS()->get('runsystem_area-ul-name') ?>
             </div>
             <div class="area__list-box">
               <ul class="area__list description">
+                <?php 
+                  $area_list = CFS()->get('runsystem_area-loop');
+                  
+                  if(isset($area_list)){ 
+                    foreach($area_list as $key => $value){
+                      foreach($value as $val){ ?>
+                  
                 <li class="area__item description-secondary">
-                  В зданиях различного назначения: складские, производственные, сельскохозяйственные, административные,
-                  общественные и др.
+                  <?= $val; ?>
                 </li>
-                <li class="area__item description-secondary">
-                  В зданиях различным типом конструкций основного каркаса: конструкции на основе холодногнутого профиля,
-                  балки переменного сечения и сварные фермы, железобетонный каркас и др.
-                </li>
-                <li class="area__item description-secondary">
-                  Для различных типов кровельного покрытия: мягкая мембранная кровля, сэндвич-панель, или кровля
-                  в холодном исполнении из профилированного листа.
-                </li>
-                <li class="area__item description-secondary">
-                  Во всех снеговых, ветровых и сейсмических районах Российской Федерации и стран СНГ.
-                </li>
-                <li class="area__item description-secondary">
-                  В зданиях с шагом основных рам несущего каркаса не более 12 метров.
-                </li>
-                <li class="area__item description-secondary">
-                  В зданиях с агрессивностью среды вплоть до среднеагрессивной и степенью огнестойкости до II.
-                </li>
+
+                <?php } } } ?>                
               </ul>
             </div>
           </div>
@@ -83,15 +70,22 @@ get_header();
                 class="area__image" />
             </div>
             <ul class="area__list area__list-laptop">
-              <li class="area__item description-secondary">
-                Во всех снеговых, ветровых и сейсмических районах Российской Федерации и стран СНГ.
-              </li>
-              <li class="area__item description-secondary">
-                В зданиях с шагом основных рам несущего каркаса не более 12 метров.
-              </li>
-              <li class="area__item description-secondary">
-                В зданиях с агрессивностью среды вплоть до среднеагрессивной и степенью огнестойкости до II.
-              </li>
+                <?php 
+                  $area_list_copy = CFS()->get('runsystem_area-loop');
+                  if(isset($area_list_copy)){ 
+                   $area_lenght = count($area_list);
+                   $number_posts = $area_lenght - 3;
+
+                    foreach(array_reverse($area_list_copy) as $key => $value){
+                     if($number_posts === $area_lenght) break;
+                     $number_posts++;                
+                      foreach($value as $val){ ?>
+                  
+                <li class="area__item description-secondary">
+                  <?= $val; ?>
+                </li>
+
+                <?php } } }?>   
             </ul>
           </div>
         </div>
@@ -101,19 +95,13 @@ get_header();
           <h2 class="resist__header page-title">
             Коррозийная<br class="resist__br" />
             стойкость
-          </h2>
+          </h2>	
           <div class="resist__descr-box">
             <p class="resist__descr description-secondary">
-              Весь металл для прогонных систем, производимых в компании Кингспан имеет первый класс цинкования —
-              не менее 275 г/м2. Если вы планируете использовать металлические конструкции в средне, либо слабо
-              агрессивной среде, существует возможность нанесения покрытия с индивидуальными характеристиками.
-              Коррозийная стойкость метала подтверждена натурными испытаниями в лаборатории электрохимической коррозии
-              Санкт-Петербургского Технологического Университета.
+              <?= CFS()->get('runsystem_resist-text-left') ?>
             </p>
             <p class="resist__descr description-secondary">
-              В качестве поставщиков металла для производства прогонных систем и каркасов зданий мы выбираем только
-              проверенных поставщиков с высокими требованиями к качеств поставляемой продукции. На текущий момент
-              поставки металла осуществляют компании Северсталь и НЛМК.
+              <?= CFS()->get('runsystem_resist-text-right') ?>
             </p>
           </div>
         </div>
@@ -127,14 +115,8 @@ get_header();
                 class="fireresist__image" />
             </div>
             <p class="fireresist__descr description-secondary">
-              Предел огнестойкости стальных конструкций Kingspan имеет показатель R15 (класс пожарной опасности К0),
-              что подтверждено огневыми испытаниями в сертифицированных лабораториях в России и за рубежом. Это
-              позволяет использовать профиль Kingspan в качестве несущих конструкций, в том числе конструкций колонн
-              на зданиях IV степени огнестойкости без дополнительной огнезащиты, а в качестве прогонов, ферм и других
-              элементов бесчердачных покрытий на зданиях II и III степени огнестойкости.
-              <span class="fireresist__span-hide">При использовании дополнительной конструктивной огнезащиты возможно
-                применение стальных конструкций
-                Кингспан, в качестве колонн на зданиях II и III степени огнестойкости.</span>
+              <?= CFS()->get('runsystem_fireresist-text1') ?>
+              <span class="fireresist__span-hide"><?= CFS()->get('runsystem_fireresist-text2') ?></span>
             </p>
           </div>
           <div class="fireresist__right">
@@ -143,8 +125,7 @@ get_header();
                 class="fireresist__image" />
             </div>
             <p class="fireresist__descr fireresist__descr-laptop description-secondary">
-              При использовании дополнительной конструктивной огнезащиты возможно применение стальных конструкций
-              Кингспан, в качестве колонн на зданиях II и III степени огнестойкости.
+              <?= CFS()->get('runsystem_fireresist-text2') ?>
             </p>
           </div>
         </div>
@@ -154,17 +135,10 @@ get_header();
           <h2 class="economy__header page-title">Экономичность</h2>
           <div class="economy__descr-box">
             <p class="economy__descr description-secondary">
-              Относительно черно-металлических прогонов, увеличенная высота профиля стального прогона Кингспан
-              повышает показатель жесткость данного элемента. Другими словами, холодногнутые прогоны Кингспан
-              позволяют достигать необходимого момента сопротивления, при меньшей площади поперечного сечения прогона.
-              Необходимая несущая способность достигается при меньшей массе прогонов, что сильно влияет на экономию
-              стоимости материала, доставки и монтажа металлоконструкций.
+             <?= CFS()->get('runsystem_economy-text-left') ?>
             </p>
             <p class="economy__descr description-secondary">
-              Z-образная форма с полками разной ширины позволяет вкладывать профили друг в друга. Таким образом,
-              усиление конструкции можно проводить только в наиболее нагруженных местах конструкции. Помимо этого, при
-              транспортировке возможность вкладывания профилей друг в друга обеспечивает оптимальную загрузку
-              транспорта.
+             <?= CFS()->get('runsystem_economy-text-right') ?>
             </p>
           </div>
         </div>
@@ -184,23 +158,21 @@ get_header();
                 class="individual__image" />
             </div>
             <p class="individual__descr description-secondary">
-              Здания выполненные по аналогичной схеме что и FRAME PRO, но имеющие большие геометрические размеры,
-              увеличенные климатические нагрузки, полезные нагрузки, нагрузки от кранов опорного типа, а также
-              учитывающие установку антресоли. Более высокие параметры здания достигается за счет введение
-              конструктивных решений которые отсутствуют в серийном варианте:
+              <?= CFS()->get('runsystem_individual-text') ?>
             </p>
             <ul class="individual__list description-secondary">
+              <?php 
+                $individual_list = CFS()->get('runsystem_individual-loop');
+
+                if(isset($individual_list)){ 
+                  foreach($individual_list as $key => $value){
+                    foreach($value as $val){ ?>
+              
               <li class="individual__item">
-                Колонны из сварного двутавра для увеличения высоты здания свыше 6 метров и дополнительной полезной
-                нагрузки;
+                <?= $val;?>
               </li>
-              <li class="individual__item">
-                Колонны из сварного двутавра и подкрановые пути для установки кранов опорного типа;
-              </li>
-              <li class="individual__item">
-                Усиленные элементы связевого блока и каркаса для восприятия сейсмики свыше 8 баллов и увеличения
-                пролета до 25 метров.
-              </li>
+
+              <?php } } }?>  
             </ul>
           </div>
           <div class="individual__bottom">
@@ -214,17 +186,18 @@ get_header();
             </div>
             <div class="individual__bottom-right">
               <ul class="individual__list description-secondary">
+                <?php 
+                    $individual_list_copy = CFS()->get('runsystem_individual-loop');
+
+                    if(isset($individual_list_copy)){ 
+                      foreach($individual_list_copy as $key => $value){
+                        foreach($value as $val){ ?>
+       
                 <li class="individual__item">
-                  Колонны из сварного двутавра для увеличения высоты здания свыше 6 метров и дополнительной полезной
-                  нагрузки;
+                   <?= $val;?>
                 </li>
-                <li class="individual__item">
-                  Колонны из сварного двутавра и подкрановые пути для установки кранов опорного типа;
-                </li>
-                <li class="individual__item">
-                  Усиленные элементы связевого блока и каркаса для восприятия сейсмики свыше 8 баллов и увеличения
-                  пролета до 25 метров.
-                </li>
+
+                <?php } } }?>  
               </ul>
             </div>
           </div>
@@ -239,11 +212,19 @@ get_header();
             </div>
             <h2 class="roofs__title description-secondary">Мягкая кровля</h2>
             <ul class="roofs__list description-secondary">
-              Классическая неэксплуатируемая мембранная кровля состоящая из:
-              <li class="roofs__item">Несущего профилированного листа (НС-60, 70, 114);</li>
-              <li class="roofs__item">Пароизоляции;</li>
-              <li class="roofs__item">Минераловатного утеплителя (верхнего и нижнего слоя);</li>
-              <li class="roofs__item">Мембрана.</li>
+              <?= CFS()->get('runsystem_soft-ul-text') ?>
+              <?php 
+                $soft_list = CFS()->get('runsystem_soft-loop');
+
+                if(isset($soft_list)){      
+                foreach($soft_list as $key => $value){
+                  foreach($value as $val){ ?>
+                      
+                <li class="roofs__item">
+                  <?= $val; ?>
+                </li>
+
+              <?php } } }?> 
             </ul>
           </div>
           <div class="roofs__right">
@@ -253,10 +234,17 @@ get_header();
             </div>
             <h2 class="roofs__title description-secondary">X-DEK</h2>
             <ul class="roofs__list description-secondary">
-              Кровельная сэндвич-панель для для малоуклонных кровель с сердечником из IPN QuadCore:
-              <li class="roofs__item">Быстрое и легкое решения для утепления малоуклонных кровель;</li>
-              <li class="roofs__item">Возможно организация эксплуатируемой кровли;</li>
-              <li class="roofs__item">Герметичность достигается наклейкой мембраны.</li>
+              <?= CFS()->get('runsystem_xdek-ul-text') ?>
+              <?php 
+                $xdek_list = CFS()->get('runsystem_xdek-loop');
+
+                if(isset($xdek_list)){
+                  foreach($xdek_list as $key => $value){
+                    foreach($value as $val){ ?>
+                      <li class="roofs__item"><?= $val;?></li>
+                   <?php }
+                  ?>
+              <?php } } ?> 
             </ul>
           </div>
         </div>
@@ -287,25 +275,27 @@ get_header();
             ?>
 
             <div class="swiper-slide">
-              <div class="swiper__image-block">
-                <?php 
-                if (has_post_thumbnail()) {
-                  the_post_thumbnail();
-                } else {
-                  ?>
-                <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
-                <?php } ?>
-              </div>
-              <div class="projects__info swiper-slide__info">
-                <div class="swiper-slide__item">
-                  Клиент
-                  <div class="swiper-slide__title">Х5 Group</div>
+              <a href="<?php the_permalink(); ?>">
+                <div class="swiper__image-block">
+                  <?php 
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail();
+                  } else {
+                    ?>
+                  <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
+                  <?php } ?>
                 </div>
-                <div class="swiper-slide__item">
-                  Проект
-                  <div class="swiper-slide__title">Распределительный центр «Пятерочка»</div>
+                <div class="projects__info swiper-slide__info">
+                  <div class="swiper-slide__item">
+                    Клиент
+                    <div class="swiper-slide__title">Х5 Group</div>
+                  </div>
+                  <div class="swiper-slide__item">
+                    Проект
+                    <div class="swiper-slide__title">Распределительный центр «Пятерочка»</div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <?php } } 

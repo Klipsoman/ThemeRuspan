@@ -21,20 +21,10 @@ get_header();
       <div class="container">
         <div class="description-inner__block">
           <div class="description-inner__left description">
-            Быстровозводимые здания Ruspan — оптимальное решение для
-            строительства административных, коммерческих,
-            сельскохозяйственных, складских и промышленных объектов. Они
-            сочетают в себе баланс конструктивных решений, стоимости
-            и скорости монтажа.
+            <?= CFS()->get('steelframes_left-text') ?>
           </div>
           <div class="description-inner__right description-secondary">
-            Конструкционные элементы зданий разработаны совместно с ведущими
-            российскими НИИ в области металлических конструкций,
-            а их надёжность подтверждается натурными испытаниями. Каждая
-            типовая серия Ruspan зарегистрирована в Федеральном фонде
-            документации и полностью соответствует требованиям к зданиям
-            на основе ЛСТК. Специалисты компании сопровождают прохождение
-            проектов в экспертизе.
+            <?= CFS()->get('steelframes_right-text') ?>
           </div>
         </div>
       </div>
@@ -136,10 +126,10 @@ get_header();
       <div class="container">
         <div class="catalog__body">
           <div class="catalog__link-box">
-            <a href="" class="catalog__link">Каталог «Быстровозводимые здания» (pdf)</a>
+            <a href="" class="catalog__link" target="_blank"><?= CFS()->get('steelframes_upload-doc-name') ?></a>
           </div>
           <div class="catalog__download-box">
-            <a href="" class="catalog__download-link">Скачать</a>
+            <a href="<?= CFS()->get('steelframes_upload-doc') ?>" class="catalog__download-link">Скачать</a>
           </div>
         </div>
       </div>
@@ -181,27 +171,29 @@ get_header();
         ?>
 
             <div class="swiper-slide">
-              <div class="swiper__image-block">
-                <?php 
-                if (has_post_thumbnail()) {
-                  the_post_thumbnail();
-                } else {
-                  ?>
-                <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
-                <?php } ?>
-              </div>
-              <div class="swiper-slide__info projects__info">
-                <div class="swiper-slide__item">
-                  Клиент
-                  <div class="swiper-slide__title">Х5 Group</div>
+              <a href="<?php the_permalink(); ?>">
+                <div class="swiper__image-block">
+                  <?php 
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail();
+                  } else {
+                    ?>
+                  <img class="slider-img" src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
+                  <?php } ?>
                 </div>
-                <div class="swiper-slide__item">
-                  Проект
-                  <div class="swiper-slide__title">
-                    Распределительный центр «Пятерочка»
+                <div class="swiper-slide__info projects__info">
+                  <div class="swiper-slide__item">
+                    Клиент
+                    <div class="swiper-slide__title">Х5 Group</div>
+                  </div>
+                  <div class="swiper-slide__item">
+                    Проект
+                    <div class="swiper-slide__title">
+                      Распределительный центр «Пятерочка»
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <?php } } 

@@ -20,11 +20,7 @@
         <div class="about-inner__content">
           <div class="about-inner__left">
             <p class="about-inner__descr description">
-              Компания Руспан (ранее Кингспан) является ведущим производителем
-              сэндвич-панелей и каркасов для быстровозводимых зданий, а также
-              оказывает проектную поддержку для нежилого строительства на всех
-              стадиях от проектирования до сдачи в эксплуатацию. Руспан
-              поставляет свою продукцию по всей России и странам СНГ.
+            <?= CFS()->get('about_main-text') ?>
             </p>
           </div>
           <div class="about-inner__right">
@@ -42,25 +38,25 @@
       <div class="container">
         <div class="stats__grid">
           <div class="stats__area">
-            <div class="stats__number">>750</div>
+            <div class="stats__number"><?= CFS()->get('about_number1') ?></div>
             <div class="stats__descr description-secondary">
-              строительных проектов в России и СНГ в год
+            <?= CFS()->get('about_number1-text') ?>
             </div>
           </div>
           <div class="stats__area">
-            <div class="stats__number">2</div>
+            <div class="stats__number"><?= CFS()->get('about_number2') ?></div>
             <div class="stats__descr description-secondary">
-              производственные площадки
+            <?= CFS()->get('about_number2-text') ?>
             </div>
           </div>
           <div class="stats__area">
-            <div class="stats__number">180</div>
-            <div class="stats__descr description-secondary">сотрудников</div>
+            <div class="stats__number"><?= CFS()->get('about_number3') ?></div>
+            <div class="stats__descr description-secondary"><?= CFS()->get('about_number3-text') ?></div>
           </div>
           <div class="stats__area">
-            <div class="stats__number">>10</div>
+            <div class="stats__number"><?= CFS()->get('about_number4') ?></div>
             <div class="stats__descr description-secondary">
-              лет работы в России
+            <?= CFS()->get('about_number4-text') ?>
             </div>
           </div>
         </div>
@@ -110,29 +106,18 @@
           <div class="mission__right">
             <div class="mission__part">
               <p class="mission__descr">
-                Мы создаем высокоэффективные здания как готовые решения для
-                наших клиентов.
+              <?= CFS()->get('about_mission-block1') ?>
               </p>
               <p class="mission__descr">
-                Мы верим в то, что безопасность и благополучие людей в зданиях
-                являются жизненно важной ценностью, и работаем для
-                её обеспечения, одновременно стремясь к большей
-                производительности и эффективности для наших клиентов
-                и оптимизации затрат.
+              <?= CFS()->get('about_mission-block2') ?>
               </p>
             </div>
             <div class="mission__part">
               <p class="mission__descr">
-                Нас отличает наше неустанное стремление к повышению
-                эффективности строительства и неукоснительное соблюдение самых
-                высоких стандартов качества на всех этапах производства.
+              <?= CFS()->get('about_mission-block3') ?>
               </p>
               <p class="mission__descr">
-                Мы уверены, что использование передовых материалов
-                и технологий, вклад в повышение уровня экспертности
-                и комплексный подход к производству и проектированию
-                способствуют не только развитию нашей компании, но и всей
-                строительной отрасли в целом.
+              <?= CFS()->get('about_mission-block4') ?>
               </p>
             </div>
           </div>
@@ -146,36 +131,21 @@
         <h2 class="values__header section-header">Наши ценности</h2>
         <div class="values__content">
           <div class="values__item">
-            <h3 class="values__title description">Команда экспертов</h3>
+            <h3 class="values__title description"><?= CFS()->get('about_values-header1') ?></h3>
             <p class="values__descr description-secondary description-secondary--black">
-              Мы успешно работаем в отрасли с 2008 г. в России и с 1965 г.
-              в мире. Наша команда переняла лучшее из европейского
-              и российского опыта, мы реализуем более 750 проектов в год
-              на территории России и СНГ. Ruspan отбирает лучшие кадры
-              на рынке, а наши сотрудники — это профессионалы с многолетним
-              опытом работы в строительной отрасли.
+              <?= CFS()->get('about_values-text1') ?>
             </p>
           </div>
           <div class="values__item">
-            <h3 class="values__title description">Передовые технологии</h3>
+            <h3 class="values__title description"><?= CFS()->get('about_values-header2') ?></h3>
             <p class="values__descr description-secondary description-secondary--black">
-              Мы используем самые современные методы проектирования
-              строительных объектов и обосновываем предлагаемые эффективные
-              решения детальными расчетами. Мы не идем на компромиссы
-              по закупаемому и используемому сырью при производстве нашей
-              продукции. Мы не стоим на месте, а постоянно развиваемся,
-              отвечая на растущие запросы наших клиентов.
+              <?= CFS()->get('about_values-text2')?>
             </p>
           </div>
           <div class="values__item">
-            <h3 class="values__title description">Ориентированность на клиента</h3>
+            <h3 class="values__title description"><?= CFS()->get('about_values-header3') ?></h3>
             <p class="values__descr description-secondary description-secondary--black">
-              Мы — клиентоориентированная компания потому, что мы знаем
-              и понимаем наших клиентов и создаем решения, которые наилучшим
-              образом отвечают их задачам и потребностям. Наши масштаб
-              и гибкость позволяют нам предложить клиентам то, что им нужно
-              и когда это нужно, будь то транснациональная корпорация или
-              индивидуальный предприниматель.
+              <?= CFS()->get('about_values-text3') ?>
             </p>
           </div>
         </div>

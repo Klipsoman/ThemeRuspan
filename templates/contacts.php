@@ -34,7 +34,7 @@
               <a class="location__mail description" href="mailto:info@ruspan.su">info@ruspan.su</a>
             </div>
             <address class="location__address description-secondary">
-              196158, Россия, Санкт-Петербург, Пулковское шоссе, дом 28, литера А, офис 1403
+              196158, Россия, Санкт-Петербург, Пулковское шоссе, дом 28, литера А, офис 804
             </address>
             <div class="location__social-box">
               <a class="location__social link-bg-blue link-bg-blue--arrow link-fz-standart" href="https://vk.com/ruspan_russia">Вконтакте</a>
