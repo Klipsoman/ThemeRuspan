@@ -54,7 +54,7 @@
           </div>
           <div class="header__additional">
             <a class="header__email" href="mailto:info@ruspan.su">info@ruspan.su</a>
-            <a class="header__locale" href="#">EN</a>
+            <!-- <a class="header__locale" href="#">EN</a> -->
             <a class="header__search" href="<?php echo get_search_link() ?>">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="7.5" cy="7.5" r="4.8033" transform="rotate(-45 7.5 7.5)" stroke="#9F9F9F" />
