@@ -4402,10 +4402,6 @@ textarea {
   img {
   width: 129px;
 }
-.history-page .timeline section.year:first-child section > ul > li {
-  position: relative;
-  top: -42px;
-}
 .history-page .page-links {
   margin-bottom: 200px;
 }

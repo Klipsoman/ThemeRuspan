@@ -40,9 +40,6 @@
                 <h3>Ноябрь 2008</h3>
                 <section>
                   <ul>
-                    <li>
-                      <img src="<?= get_template_directory_uri()?>/./assets/images/timeline-logo1.jpg" alt="" />
-                    </li>
                     <li class="description-secondary">
                       Первая поставка сэндвич-панелей международной Группы
                       Kingspan в Россию из Польши для производителя мороженого
@@ -88,9 +85,6 @@
                 <h3>2015</h3>
                 <section>
                   <ul>
-                    <li>
-                      <img src="<?= get_template_directory_uri()?>/./assets/images/timeline-logo2.jpg" alt="" />
-                    </li>
                     <li class="description-secondary">
                       Объединение Kingspan и Joris Ide (Йорис Иде). В России
                       Joris Ide представлена заводом в Гатчине Ленинградской
