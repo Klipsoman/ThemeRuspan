@@ -24,37 +24,40 @@
           <div class="product__left">
             <div class="product__title description"><?= CFS()->get('panel_title');?></div>
             <div class="product__descr description-secondary"><?= CFS()->get('panel_descr');?></div>
+            <?php
+            $panel_features = [
+              "panel_type" => CFS()->get('panel_type'),
+              "panel_material" => CFS()->get('panel_material'),
+              "panel_width" => CFS()->get('panel_width'),
+              "panel_thick" => CFS()->get('panel_thick'),
+              "panel_class" => CFS()->get('panel_class'),
+              "panel_lock" => CFS()->get('panel_lock'),
+              "panel_joint" => CFS()->get('panel_joint')
+            ];
+
+            $panel_features_name = [
+              "Тип" => "panel_type",
+              "Материал" => "panel_material",
+              "Ширина" => "panel_width",
+              "Толщина" => "panel_thick",
+              "Класс пожарной безопасности" => "panel_class",
+              "Тип замка" => "panel_lock",
+              "Тип стыка" => "panel_joint"
+            ];
+            ?>
             <div class="product__characteristic product-characteristic">
-
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Тип</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_type');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Материал</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_material');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Ширина</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_width');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Толщина</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_thick');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Класс пожарной безопасности</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_class');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Тип замка</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_lock');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Тип стыка</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_joint');?></div>
-              </div>
-
+            <?php
+            foreach ( $panel_features as $key => $feature ) {
+              if(!empty($feature)){
+                $title = array_search($key, $panel_features_name);
+                ?>
+                  <div class="product-characteristic__row">
+                    <div class="product-characteristic__key description-secondary"><?= $title;?></div>
+                    <div class="product-characteristic__value description-secondary"><?= $feature;?></div>
+                  </div>
+                <?php
+              }
+            }?>
             </div>
 
             <button class="product__btn btn btn-gold">Узнать стоимость</button>
@@ -74,36 +77,18 @@
           </div>
           <div class="product__laptop">
             <div class="product__characteristic product-characteristic">
-
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Тип</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_type');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Материал</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_material');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Ширина</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_width');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Толщина</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_thick');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Класс пожарной безопасности</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_class');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Тип замка </div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_lock');?></div>
-              </div>
-              <div class="product-characteristic__row">
-                <div class="product-characteristic__key description-secondary">Тип стыка</div>
-                <div class="product-characteristic__value description-secondary"><?= CFS()->get('panel_joint');?></div>
-              </div>
-
+            <?php 
+            foreach ( $panel_features as $key => $feature ) {
+              if(!empty($feature)){
+                $title = array_search($key, $panel_features_name);
+                ?>
+                  <div class="product-characteristic__row">
+                    <div class="product-characteristic__key description-secondary"><?= $title;?></div>
+                    <div class="product-characteristic__value description-secondary"><?= $feature;?></div>
+                  </div>
+                <?php
+              }
+            }?>
             </div>
 
             <button class="product__btn btn btn-gold">Узнать стоимость</button>
