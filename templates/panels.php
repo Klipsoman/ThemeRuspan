@@ -90,17 +90,30 @@
                     src="https://www.pinecliffs.com/static/images/cms/default_image.png" alt="" />
                   <?php } ?>
                 </div>
+                <?php
+                  $panel_features = [
+                    "panel_lock" => CFS()->get('panel_lock'),
+                    "panel_joint" => CFS()->get('panel_joint')
+                  ];
+                  $panel_features_name = [
+                    "Тип замка" => "panel_lock",
+                    "Тип стыка" => "panel_joint"
+                  ];
+                ?>
                 <div class="sandvich-panel__info">
                   <div class="sandvich-panel__title description"><?= the_title();?></div>
                   <div class="sandvich-panel__list description-secondary">
+                  <?php
+                    foreach ( $panel_features as $key => $feature ) {
+                    if(!empty($feature)){
+                      $title = array_search($key, $panel_features_name);
+                    ?>
                     <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Тип замка:</div>
-                      <div class="sandvich-panel__value"><?= CFS()->get('panel_lock');?></div>
+                      <div class="sandvich-panel__key"><?= $title;?>:</div>
+                      <div class="sandvich-panel__value"><?= $feature;?></div>
                     </div>
-                    <div class="sandvich-panel__item">
-                      <div class="sandvich-panel__key">Соединение:</div>
-                      <div class="sandvich-panel__value"><?= CFS()->get('panel_joint');?></div>
-                    </div>
+                    <?php
+                    } }?>
                   </div>
                 </div>
                 <div class="sandvich-panel__tags">
