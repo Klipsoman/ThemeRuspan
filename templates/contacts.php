@@ -30,6 +30,10 @@
               <a class="location__tel telephone__desktop description">+7 812 602-29-40</a>
               <a class="location__tel telephone__mobile description" href="tel:+78126022940">+7 812 602-29-40</a>
             </div>
+            <div class="location__tel-box">
+              <a class="location__tel telephone__desktop description">+7 865 544-56-02</a>
+              <a class="location__tel telephone__mobile description" href="tel:+78655445602">+7 865 544-56-02</a>
+            </div>
             <div class="location__mail-box">
               <a class="location__mail description" href="mailto:info@ruspan.su">info@ruspan.su</a>
             </div>
