@@ -6265,8 +6265,6 @@ textarea {
   }
   .contacts__tel {
     margin-bottom: 0;
-  }
-  .contacts__tel:nth-child(2) {
     margin-top: 15px;
   }
   .contacts__mail {

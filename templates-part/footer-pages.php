@@ -39,7 +39,11 @@
               <div class="contacts__tel">
                 <a class="telephone__desktop description">+7 812 602-29-40</a>
                 <a class="telephone__mobile description" href="tel:+78126022940">+7 812 602-29-40</a>
-              </div>   
+              </div>
+              <div class="contacts__tel">
+                <a class="telephone__desktop description">+7 865 544-56-02</a>
+                <a class="telephone__mobile description" href="tel:+78655445602">+7 865 544-56-02</a>
+              </div>  
               <div class="contacts__mail"><a class="link" href="mailto:info@ruspan.su">info@ruspan.su</a></div>
             </div>
           </div>
